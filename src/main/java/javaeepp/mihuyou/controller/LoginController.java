@@ -29,6 +29,7 @@ public class LoginController {
 
     @RequestMapping("user_registration")
     public String userRegistration(){
-        return "registrationMenu";
+        return "enroll";
     }
+
 }
