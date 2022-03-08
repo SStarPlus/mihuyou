@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />-->
+<!--    <meta http-equiv="Pragma" content="no-cache" />-->
+<!--    <meta http-equiv="Expires" content="0" />-->
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{~/css/login.css}">
+<!--    <style>-->
+<!--        /*.login-box{background-color: yellow; }*/-->
+<!--    </style>-->
+</head>
+<body style="overflow: hidden; margin: 0px; border: 0px; padding: 0px; ">
+<div class="bg-box">
+    <img th:src="@{~/pictures/pic1.jpg}" width="100%"  height="auto">
+</div>
+login
+修改测试部分
+<div class="login-box">
+    <div>
+        <form method="post" action="loginJudge" autocomplete="off">
+            <input id="input-type" type="hidden" th:name="inputType">
+            <div class="login-user-manager-swap-box">
+                <span id="user-login-swap-btn">用户登录</span>
+                <span class="login-split-sign">|</span>
+                <span id="manager-login-swap-btn">管理员登录</span>
+            </div>
+            <div class="login-user-box">
+                <div class="login-num-box" id="user-num-box">
+                    <span style="float: left; font-size: 15px; line-height: 40px">&nbsp&nbsp&nbsp&nbsp账号</span>
+                    <input class="login-num-input" id="user-num-input" name="userNum" placeholder="请输入账号">
+                </div>
+                <div class="login-pwd-box" id="user-pwd-box">
+                    <span style="float: left; font-size: 15px; line-height: 40px">&nbsp&nbsp&nbsp&nbsp密码</span>
+                    <input class="login-pwd-input" id="user-pwd-input" name="userPwd" placeholder="请输入密码" type="password">
+                </div>
+                <div class="login-verify-box" id="user-verify-box">
+                    <div class="login-verify-input-box">
+                        <span style="float: left; font-size: 15px; line-height: 40px">验证码</span>
+                        <input class="login-verify-input" id="user-verify-input" name="verifyCode" placeholder="请输入验证码" type="password">
+                    </div>
+                    <div class="login-verify-picture-box">
+                        <img th:src="@{~/pictures/RJF5.jfif}" width="65px" style="font-size: 10px">
+                    </div>
+                </div>
+                <div class="login-submit-btn-box">
+                    <input class="login-registration-btn-input" type="submit" th:value="注册" onclick="document.getElementById('input-type').value=this.value">
+                    <input class="login-submit-btn-input" type="submit" th:value="登录" onclick="document.getElementById('input-type').value=this.value">
+                </div>
+            </div>
+
+            <div class="login-manager-box">
+                <div class="login-num-box" id="manager-num-box">
+                    <span style="float: left; font-size: 15px; line-height: 40px">&nbsp&nbsp&nbsp&nbsp账号</span>
+                    <input class="login-num-input" id="manager-num-input" name="userNum" placeholder="请输入管理员账号" onclick="document.getElementById('input-type').value=this.value">
+                </div>
+                <div class="login-face-recognition-btn-box">
+                    <input class="login-face-recognition-btn-input" type="submit" th:value="进行人脸识别">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+jQuery
+<script th:src="@{../js/jQuery.js}"></script>
+
+<script th:src="@{../js/login.js}"></script>
+<!--Bootstrap-->
+<!--<script th:src="@{../static/bookstrap/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js}"></script>-->
+</body>
+</html>
