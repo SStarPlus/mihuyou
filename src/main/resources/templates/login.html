@@ -20,7 +20,7 @@ login
 修改测试部分
 <div class="login-box">
     <div>
-        <form method="post" action="loginJudge" autocomplete="off">
+        <form method="post" action="loginJudge" autocomplete="off" >
             <input id="input-type" type="hidden" th:name="inputType">
             <div class="login-user-manager-swap-box">
                 <span id="user-login-swap-btn">用户登录</span>
@@ -36,28 +36,78 @@ login
                     <span style="float: left; font-size: 15px; line-height: 40px">&nbsp&nbsp&nbsp&nbsp密码</span>
                     <input class="login-pwd-input" id="user-pwd-input" name="userPwd" placeholder="请输入密码" type="password">
                 </div>
+<!--                自己的验证码-->
+<!--                <div class="login-verify-box" id="user-verify-box">-->
+<!--                    <div class="login-verify-input-box">-->
+<!--                        <span style="float: left; font-size: 15px; line-height: 40px">验证码</span>-->
+<!--                        <input class="login-verify-input" id="user-verify-input" name="verifyCode" placeholder="请输入验证码" type="password">-->
+<!--                    </div>-->
+<!--                    <div class="login-verify-picture-box">-->
+<!--                        <img th:src="@{~/pictures/RJF5.jfif}" width="65px" style="font-size: 10px">-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+
+
+
+
+
                 <div class="login-verify-box" id="user-verify-box">
-                    <div class="login-verify-input-box">
-                        <span style="float: left; font-size: 15px; line-height: 40px">验证码</span>
-                        <input class="login-verify-input" id="user-verify-input" name="verifyCode" placeholder="请输入验证码" type="password">
-                    </div>
-                    <div class="login-verify-picture-box">
-                        <img th:src="@{~/pictures/RJF5.jfif}" width="65px" style="font-size: 10px">
-                    </div>
+                    <span id="code" placeholder="验证码" type="text" class="" style="float: left; font-size: 15px; line-height: 40px">验证码</span>
+                    <input class="login-verify-input" id="user-verify-input" name="verifyCode" placeholder="请输入验证码" type="password">
+<!--                    <input id="code" placeholder="验证码" type="text" class=""-->
+<!--                           style="width:170px">-->
+                    <!-- 验证码 显示 -->
+                    <img οnclick="javascript:getvCode()" id="verifyimg" style="margin-left: 20px;"/>
                 </div>
+
+                <script type="text/javascript">
+                    getvCode();
+
+                    /**
+                     * 获取验证码
+                     * 将验证码写到login.html页面的id = verifyimg 的地方
+                     */
+                    function getvCode() {
+                        document.getElementById("verifyimg").src = timestamp("http://localhost:8080/verifyCode");
+                    }
+                    //为url添加时间戳
+                    function timestamp(url) {
+                        var getTimestamp = new Date().getTime();
+                        if (url.indexOf("?") > -1) {
+                            url = url + "&timestamp=" + getTimestamp
+                        } else {
+                            url = url + "?timestamp=" + getTimestamp
+                        }
+                        return url;
+                    };
+                </script>
+
+
+
+
                     <div class="login-submit-btn-box">
                         <input class="login-registration-btn-input" type="submit" th:value="注册" onclick="document.getElementById('input-type').value=this.value">
                         <input class="login-submit-btn-input" type="submit" th:value="登录" onclick="document.getElementById('input-type').value=this.value" >
                     </div>
             </div>
-
+        </form>
+        <form action="managerLoginJudge" method="post">
             <div class="login-manager-box">
                 <div class="login-num-box" id="manager-num-box">
                     <span style="float: left; font-size: 15px; line-height: 40px">&nbsp&nbsp&nbsp&nbsp账号</span>
-                    <input class="login-num-input" id="manager-num-input" name="userNum" placeholder="请输入管理员账号" onclick="document.getElementById('input-type').value=this.value">
+                    <input class="login-num-input" id="manager-num-input" name="ManagerNum" placeholder="请输入管理员账号" onclick="document.getElementById('input-type').value=this.value">
+                </div>
+                <div class="login-pwd-box" id="manager-pwd-box">
+                    <span style="float: left; font-size: 15px; line-height: 40px">&nbsp&nbsp&nbsp&nbsp密码</span>
+                    <input class="login-pwd-input" id="manager-pwd-input" name="ManagerPwd" placeholder="请输入密码" type="password">
                 </div>
                 <div class="login-face-recognition-btn-box">
                     <input class="login-face-recognition-btn-input" type="submit" th:value="进行人脸识别">
+                </div>
+                <div class="login-submit-btn-box">
+                    <input class="login-submit-btn-input" type="submit" th:value="管理员登录" onclick="document.getElementById('input-type').value=this.value" >
                 </div>
             </div>
         </form>

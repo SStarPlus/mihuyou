@@ -6,4 +6,9 @@
          from users
          where Uid = '${UserNum}' AND password = '${UserPwd}'
    </select>
+    <select id="loginManagerCheck" resultType="java.lang.Integer">
+        SELECT count(*)
+         from user_Manager
+         where ManagerId = '${ManagerNum}' AND ManagerPwd = '${ManagerPwd}'
+    </select>
 </mapper>
