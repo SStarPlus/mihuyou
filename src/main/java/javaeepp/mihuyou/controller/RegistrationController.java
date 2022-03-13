@@ -14,7 +14,7 @@ public class RegistrationController {
     RegistrationService registrationService;
 
     @RequestMapping("/user_registration_func")
-    public String userRegistration(HttpServletRequest request, Model model){
+    public String userRegistration(HttpServletRequest request){
         if(request.getParameter("inputType").equals("返回")){
             return "login";
         }else if(request.getParameter("inputType").equals("确认")){
@@ -28,6 +28,8 @@ public class RegistrationController {
             registrationService.userRegistration(infos);
             return "login";
         }
+
+//        未获得实现按钮时的控制台反馈
         System.out.println("未响应");
         return "registrationPage";
     }

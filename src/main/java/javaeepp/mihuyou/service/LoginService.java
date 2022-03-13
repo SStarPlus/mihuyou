@@ -1,9 +1,12 @@
 package javaeepp.mihuyou.service;
 
+import javaeepp.mihuyou.entity.NationInfo;
 import javaeepp.mihuyou.mapper.LoginMapper;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class LoginService {
@@ -12,5 +15,9 @@ public class LoginService {
     public int loginCheck(User user,String UserNum, String UserPwd){
         int flag = loginMapper.loginCheck(user,UserNum,UserPwd);
         return flag;
+    }
+//    获取民族信息
+    public List<NationInfo> getNationInfo(){
+        return loginMapper.getNationInfo();
     }
 }

@@ -25,11 +25,19 @@
             </div>
             <div class="registration-info-box">
                 <span>民族</span>
-                <input name="userNation">
+                <select name="userNation">
+                    <option th:value="-1"></option>
+                    <option th:each="nationInfoList, itemStat:${NationInfoList}" th:value="${nationInfoList.getNation_num()}"
+                        th:text="${nationInfoList.getNation_name()}"></option>
+                </select>
             </div>
             <div class="registration-info-box">
                 <span>性别</span>
-                <input name="userSex">
+                <select name="userSex">
+                    <option th:value="-1"></option>
+                    <option th:value="0" th:text="男"></option>
+                    <option th:value="1" th:text="女"></option>
+                </select>
             </div>
         </div>
         <div class="registration-func-box">
