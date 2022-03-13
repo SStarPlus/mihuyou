@@ -31,13 +31,26 @@
                 <span>性别</span>
                 <input name="userSex">
             </div>
+            <div class="registration-info-box">
+                <span>邮箱</span>
+                <input name="mailBox" id="email">
+                <button id="get-mailBox-verify" type="button">获取验证码</button>
+            </div>
+            <div class="registration-info-box">
+                <span>邮箱验证码</span>
+                <input name="mailBoxVerifyCode" id="input-mailBox-verifyCode">
+            </div>
         </div>
         <div class="registration-func-box">
-            <input type="submit" value="确认" onclick="document.getElementById('input-type').value=this.value">
+            <input type="submit" value="确认" onclick="document.getElementById('input-type').value=this.value" id="registration-confirm-btn">
             <input type="submit" value="返回" onclick="document.getElementById('input-type').value=this.value">
             <input type="hidden" name="inputType" id="input-type" value="0">
+            <input type="hidden" name="verifyResult" id="verify-result" value="0">
         </div>
     </div>
 </form>
+
+<script th:src="@{~/js/jQuery.js}"></script>
+<script th:src="@{~/js/registration.js}"></script>
 </body>
 </html>

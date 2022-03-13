@@ -1,6 +1,5 @@
 package javaeepp.mihuyou.controller;
 
-import com.sun.deploy.net.HttpResponse;
 import javaeepp.mihuyou.service.LoginService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
