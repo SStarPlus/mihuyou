@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class registrationController {
-    @RequestMapping("user_registration")
+    @RequestMapping("user_registration_func")
     public String userRegistration(HttpServletRequest request, Model model){
         if(request.getParameter("inputType").equals("返回")){
             return "login";
