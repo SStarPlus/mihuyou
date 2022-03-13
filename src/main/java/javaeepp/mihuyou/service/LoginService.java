@@ -11,6 +11,7 @@ public class LoginService {
     private LoginMapper loginMapper;
     public int loginCheck(User user,String UserNum, String UserPwd){
         int flag = loginMapper.loginCheck(user,UserNum,UserPwd);
+        System.out.println(flag);
         return flag;
     }
 }
