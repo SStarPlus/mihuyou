@@ -1,6 +1,5 @@
 package javaeepp.mihuyou.controller;
 
-import com.sun.deploy.net.HttpResponse;
 import javaeepp.mihuyou.service.LoginService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class LoginController {
     @Autowired
+
+
+//    public asda
+
+
 
     private LoginService loginService;
     @RequestMapping("login")
