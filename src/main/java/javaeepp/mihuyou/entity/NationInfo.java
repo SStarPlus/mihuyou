@@ -1,6 +1,6 @@
 package javaeepp.mihuyou.entity;
 
-public class nation_info {
+public class NationInfo {
     private int nation_num;
     private String nation_name;
 
