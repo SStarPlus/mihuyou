@@ -13,13 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class LoginController {
     @Autowired
-
+    private LoginService loginService;
 
 //    public asda
 
-
-
-    private LoginService loginService;
     @RequestMapping("login")
     public String enterLogin(){
         return "login";
@@ -28,6 +25,7 @@ public class LoginController {
     @RequestMapping("loginJudge")
     public String loginJudge(HttpServletRequest request, Model model, User user, RedirectAttributes redirectAttributes){
         if(request.getParameter("inputType").equals("注册")) {
+            model.addAttribute("NationInfoList", loginService.getNationInfo());
             return "registrationPage";
         }
         else if(request.getParameter("inputType").equals("登录")){
