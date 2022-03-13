@@ -3,6 +3,7 @@ package javaeepp.mihuyou.controller;
 import com.sun.deploy.net.HttpResponse;
 import javaeepp.mihuyou.service.LoginService;
 import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class LoginController {
+    @Autowired
+
     private LoginService loginService;
     @RequestMapping("login")
     public String enterLogin(){
@@ -27,19 +30,19 @@ public class LoginController {
             String UserNum  =request.getParameter("userNum");
             String UserPwd = request.getParameter("userPwd");
 
-
             System.out.println(UserNum);
             System.out.println(UserPwd);
+
             int flag = 0;
             flag = loginService.loginCheck(user,UserNum,UserPwd);
-
             System.out.println(flag);
             if (flag>0){
+                return "test";
+            }
+            else {
+                System.out.println("账号或密码错误");
                 return "login";
             }
-            else
-                return "test";
-
         }
         int fromWhere = 0;
         if(fromWhere == 1){
