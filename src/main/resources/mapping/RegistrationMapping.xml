@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="javaeepp.mihuyou.mapper.RegistrationMapper">
+
+    <insert id="addUsers">
+        INSERT INTO users
+        SET UId = '${userInfoList[0]}',
+            password = '${userInfoList[1]}'
+    </insert>
+
+    <insert id="addInformation">
+        INSERT INTO information
+        SET Uid = '${userInfoList[0]}',
+        sex = '${userInfoList[1]}',
+        nation = '${userInfoList[2]}'
+    </insert>
+</mapper>

@@ -7,7 +7,7 @@
 </head>
 <body>
 <!--这是注册界面-->
-<form method="post" action="/">
+<form method="post" action="/user_registration_func">
     <div id="registration-box">
         <div id="registration-logo">注册</div>
         <div>
@@ -17,11 +17,11 @@
             </div>
             <div class="registration-info-box">
                 <span>密码</span>
-                <input name="userPwd">
+                <input name="userPwd" type="password">
             </div>
             <div class="registration-info-box">
                 <span>再次确认密码</span>
-                <input name="confirmUSerPwd">
+                <input name="confirmUSerPwd" type="password">
             </div>
             <div class="registration-info-box">
                 <span>民族</span>
@@ -35,7 +35,7 @@
         <div class="registration-func-box">
             <input type="submit" value="确认" onclick="document.getElementById('input-type').value=this.value">
             <input type="submit" value="返回" onclick="document.getElementById('input-type').value=this.value">
-            <input type="hidden" name="input-type" value="0">
+            <input type="hidden" name="inputType" id="input-type" value="0">
         </div>
     </div>
 </form>
