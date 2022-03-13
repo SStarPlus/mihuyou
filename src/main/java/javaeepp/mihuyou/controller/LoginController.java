@@ -16,7 +16,7 @@ public class LoginController {
     @RequestMapping("loginJudge")
     public String loginJudge(HttpServletRequest request, Model model){
         if(request.getParameter("inputType").equals("注册")){
-            return "registrationMenu";
+            return "registrationPage";
         }
         int fromWhere = 0;
         if(fromWhere == 1){

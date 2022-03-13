@@ -67,8 +67,8 @@ $(function () {
     })
 
     // 点击注册按钮跳转至注册页面
-    $(".login-registration-btn-input").click(function () {
-        alert();
-        window.location.href='/user_registration';
-    })
+    // $(".login-registration-btn-input").click(function () {
+    //     // alert();
+    //     window.location.href='/user_registration';
+    // })
 })

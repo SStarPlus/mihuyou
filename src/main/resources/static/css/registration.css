@@ -1,0 +1,31 @@
+span{
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+/*注册框*/
+#registration-box{
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+    position: absolute;
+    left: 50%;
+    transform: translate( -50%, 0);
+}
+/*注册logo*/
+#registration-logo{
+    text-align: center;
+    font-size: 30px;
+}
+/*注册信息框*/
+.registration-info-box{
+    /*margin-left: 50%;*/
+    /*transform: translate(-50%, 0);*/
+    text-align: center;
+}
+/*注册功能框*/
+.registration-func-box{
+    /*margin-left: 50%;*/
+    /*transform: translate(-50%, 0);*/
+    text-align: center;
+}

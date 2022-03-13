@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{~/css/registration.css}">
+</head>
+<body>
+<!--这是注册界面-->
+<form method="post" action="/">
+    <div id="registration-box">
+        <div id="registration-logo">注册</div>
+        <div>
+            <div class="registration-info-box">
+                <span>用户名</span>
+                <input name="userName">
+            </div>
+            <div class="registration-info-box">
+                <span>密码</span>
+                <input name="userPwd">
+            </div>
+            <div class="registration-info-box">
+                <span>再次确认密码</span>
+                <input name="confirmUSerPwd">
+            </div>
+            <div class="registration-info-box">
+                <span>民族</span>
+                <input name="userNation">
+            </div>
+            <div class="registration-info-box">
+                <span>性别</span>
+                <input name="userSex">
+            </div>
+        </div>
+        <div class="registration-func-box">
+            <input type="submit" value="确认" onclick="document.getElementById('input-type').value=this.value">
+            <input type="submit" value="返回" onclick="document.getElementById('input-type').value=this.value">
+            <input type="hidden" name="input-type" value="0">
+        </div>
+    </div>
+</form>
+</body>
+</html>
