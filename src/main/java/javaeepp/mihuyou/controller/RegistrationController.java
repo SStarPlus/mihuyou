@@ -21,7 +21,6 @@ public class RegistrationController {
     private MailService mailService;
 
     @RequestMapping("/user_registration_func")
-    @ResponseBody
     public String userRegistration(HttpServletRequest request, Model model){
 
         if(request.getParameter("inputType").equals("返回")){
