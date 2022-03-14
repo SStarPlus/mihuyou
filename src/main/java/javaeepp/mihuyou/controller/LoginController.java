@@ -1,5 +1,6 @@
 package javaeepp.mihuyou.controller;
 import com.sun.org.apache.bcel.internal.classfile.Code;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import javaeepp.mihuyou.IVerifyCodeGen;
 import javaeepp.mihuyou.SimpleCharVerifyCodeGenImpl;
 import com.sun.deploy.net.HttpResponse;
@@ -42,6 +43,7 @@ public class LoginController {
 
 
         if(request.getParameter("inputType").equals("注册")) {
+            model.addAttribute("NationInfoList",loginService.getNationInfo());
             return "registrationPage";
         }
         else if(request.getParameter("inputType").equals("登录")){

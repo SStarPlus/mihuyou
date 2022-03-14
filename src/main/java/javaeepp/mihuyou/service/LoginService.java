@@ -1,9 +1,13 @@
 package javaeepp.mihuyou.service;
 
+import javaeepp.mihuyou.entity.NationInfo;
+import javaeepp.mihuyou.entity.User_Manager;
 import javaeepp.mihuyou.mapper.LoginMapper;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class LoginService {
@@ -14,7 +18,7 @@ public class LoginService {
         return flag;
     }
 
-    public int loginManagerCheck(User_Manager UserManager,String ManagerNum,String ManagerPwd){
+    public int loginManagerCheck(User_Manager UserManager, String ManagerNum, String ManagerPwd){
         int flag = loginMapper.loginManagerCheck(UserManager,ManagerNum,ManagerPwd);
         return flag;
     }
