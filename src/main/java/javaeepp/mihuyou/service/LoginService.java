@@ -1,6 +1,5 @@
 package javaeepp.mihuyou.service;
 
-import javaeepp.mihuyou.entity.User_Manager;
 import javaeepp.mihuyou.mapper.LoginMapper;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +17,9 @@ public class LoginService {
     public int loginManagerCheck(User_Manager UserManager,String ManagerNum,String ManagerPwd){
         int flag = loginMapper.loginManagerCheck(UserManager,ManagerNum,ManagerPwd);
         return flag;
+    }
+//    获取民族信息
+    public List<NationInfo> getNationInfo(){
+        return loginMapper.getNationInfo();
     }
 }
