@@ -26,6 +26,7 @@ public class LoginController {
 
 
         if(request.getParameter("inputType").equals("注册")) {
+
             model.addAttribute("NationInfoList",loginService.getNationInfo());
             return "registrationPage";
         }
