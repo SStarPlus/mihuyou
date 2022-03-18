@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:replace="insertPart/header::header-fragment"></header>
+<body>
+<div class="wrapper">
+    <!--    引入头部导航栏-->
+    <div th:replace="insertPart/header::header-nav"></div>
+    <!--    引入边部导航栏-->
+    <div th:replace="insertPart/sideBar::sidebar-fragment(${path})"></div>
+    <div class="content-wrapper">
+        <div class="content-head">
+            <div class="content-fluid"></div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-fluid">
+            <p>删除商品类别</p>
+            <div>
+                <table>
+                    <tr>
+                        <td>商品类别编号</td>
+                        <td>商品类别名称</td>
+                    </tr>
+                    <tr th:each="GoodsTypes, itemStat:${GoodsTypeList}">
+                        <td th:text="${GoodsTypes.GoodsTypeId}"></td>
+                        <td th:text="${GoodsTypes.GoodsTypeName}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

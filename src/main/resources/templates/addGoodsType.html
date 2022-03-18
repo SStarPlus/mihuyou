@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:replace="insertPart/header::header-fragment"></header>
+<body>
+<div class="wrapper">
+    <!--    引入头部导航栏-->
+    <div th:replace="insertPart/header::header-nav"></div>
+    <!--    引入边部导航栏-->
+    <div th:replace="insertPart/sideBar::sidebar-fragment(${path})"></div>
+    <div class="content-wrapper">
+        <div class="content-head">
+            <div class="content-fluid"></div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-fluid">
+            <form action="confirmAddGoodsType" method="post">
+                <p>添加商品类别</p>
+                <div>
+                    <ul>
+                        <li>商品编号</li>
+                        <li><input type="text" th:name="GoodsTypeId"></li>
+                    </ul>
+                    <ul>
+                        <li>商品类别名称</li>
+                        <li><input type="text" th:name="GoodsTypeName"></li>
+                    </ul>
+                    <ul>
+                        <li><input type="submit" th:value="添加"></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
