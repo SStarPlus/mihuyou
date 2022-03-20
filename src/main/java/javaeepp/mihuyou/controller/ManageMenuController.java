@@ -30,6 +30,7 @@ public class ManageMenuController {
 
 
         model.addAttribute("GoodsTypeList", removeGoodsTypeService.getAllGoodsTypeList());
+        model.addAttribute("testTxt", "这是测试文本");
         return "removeGoodsType";
     }
 }
