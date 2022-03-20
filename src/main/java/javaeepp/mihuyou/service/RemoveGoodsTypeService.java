@@ -19,4 +19,8 @@ public class RemoveGoodsTypeService {
     public void DelAGoodsType(int GoodsTypeId){
         removeGoodsTypeMapper.DelAGoodsType(GoodsTypeId);
     }
+
+    public void EditGoodsType(int GoodsTypeId, String GoodsTypeName){
+        removeGoodsTypeMapper.EditGoodsType(GoodsTypeId, GoodsTypeName);
+    }
 }
