@@ -11,5 +11,6 @@ public class AddGoodsTypeService {
 
     public void AddAGoodsType(int GoodsTypeId, String GoodsTypeName){
         addGoodsTypeMapper.AddAGoodsType(GoodsTypeId, GoodsTypeName);
+        addGoodsTypeMapper.AddGoodsTypeFlag(GoodsTypeId);
     }
 }
