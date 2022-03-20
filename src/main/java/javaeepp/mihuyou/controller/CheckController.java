@@ -17,6 +17,7 @@ import java.io.IOException;
 
 import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 
+
 @Controller
 public class CheckController {
 //        @RequestMapping("verifyCode")
