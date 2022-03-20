@@ -6,4 +6,10 @@
         SET GoodsTypeId = '${GoodsTypeId}',
 		GoodsTypeName = '${GoodsTypeName}'
     </insert>
+
+    <insert id="AddGoodsTypeFlag">
+        INSERT INTO goodstypeflag
+        SET GoodsTypeId = '${GoodsTypeId}',
+		    GoodsTypeFlag = '1'
+    </insert>
 </mapper>

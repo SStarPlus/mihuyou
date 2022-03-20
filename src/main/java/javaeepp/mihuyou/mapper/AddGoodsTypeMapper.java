@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface AddGoodsTypeMapper {
     void AddAGoodsType(@Param("GoodsTypeId") int GoodsTypeId,
                        @Param("GoodsTypeName") String GoodsTypeName);
+
+    void AddGoodsTypeFlag(@Param("GoodsTypeId") int GoodsTypeId);
 }

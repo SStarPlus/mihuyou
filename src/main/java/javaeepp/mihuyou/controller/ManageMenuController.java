@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class ManageMenuController {
     @Autowired
-    AddGoodsTypeService addGoodsTypeService;
-
-    @Autowired
     RemoveGoodsTypeService removeGoodsTypeService;
 
     @RequestMapping("manageMenu")
@@ -34,14 +31,5 @@ public class ManageMenuController {
 
         model.addAttribute("GoodsTypeList", removeGoodsTypeService.getAllGoodsTypeList());
         return "removeGoodsType";
-    }
-    //添加商品类别
-    @RequestMapping("confirmAddGoodsType")
-    public String confirmAddGoodsType(HttpServletRequest request){
-        String GoodsTypeId = request.getParameter("GoodsTypeId");
-        String GoodsTypeName = request.getParameter("GoodsTypeName");
-
-        addGoodsTypeService.AddAGoodsType(Integer.parseInt(GoodsTypeId), GoodsTypeName);
-        return "addGoodsType";
     }
 }
