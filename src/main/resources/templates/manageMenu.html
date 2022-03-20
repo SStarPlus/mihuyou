@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:replace="insertPart/header::header-fragment"></header>
+<body>
+<div class="wrapper">
+<!--    引入头部导航栏-->
+    <div th:replace="insertPart/header::header-nav"></div>
+<!--    引入边部导航栏-->
+    <div th:replace="insertPart/sideBar::sidebar-fragment(${path})"></div>
+    <div class="content-wrapper">
+        <div class="content-head">
+            <div class="content-fluid"></div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-fluid">
+            这是页面本体内容
+        </div>
+    </div>
+</div>
+</body>
+</html>
