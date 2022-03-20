@@ -11,8 +11,12 @@ import java.util.List;
 public class RemoveGoodsTypeService {
     @Autowired
     RemoveGoodsTypeMapper removeGoodsTypeMapper;
-
+//    获取所有未删除商品类型信息
     public List<GoodsTypeInfo> getAllGoodsTypeList(){
         return removeGoodsTypeMapper.SelectAllGoodsTypeList();
+    }
+//    伪删除指定商品类别
+    public void DelAGoodsType(int GoodsTypeId){
+        removeGoodsTypeMapper.DelAGoodsType(GoodsTypeId);
     }
 }

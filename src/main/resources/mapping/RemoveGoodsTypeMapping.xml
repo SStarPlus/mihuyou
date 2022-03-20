@@ -2,8 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="javaeepp.mihuyou.mapper.RemoveGoodsTypeMapper">
     <select id="SelectAllGoodsTypeList" resultType="javaeepp.mihuyou.entity.GoodsTypeInfo">
-         SELECT GoodsTypeId, GoodsTypeName
-            FROM goodstype
+         SELECT gs.GoodsTypeId, gs.GoodsTypeName
+            FROM goodstype gs
+            INNER JOIN goodstypeflag gtf ON gs.GoodsTypeId = gtf.GoodsTypeId
+            WHERE gtf.GoodsTypeFlag = '1'
    </select>
+
+    <update id="DelAGoodsType">
+        UPDATE goodstypeflag
+        SET GoodsTypeFlag = '0'
+        WHERE GoodsTypeId = '${GoodsTypeId}'
+    </update>
 </mapper>
 
