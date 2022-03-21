@@ -35,9 +35,9 @@ public class LoginController {
             String UserPwd = request.getParameter("userPwd");
             String verifyCode = request.getParameter("verifyCode");
 
-            System.out.println(UserNum);
-            System.out.println(UserPwd);
-            System.out.println(verifyCode);
+//            System.out.println(UserNum);
+//            System.out.println(UserPwd);
+//            System.out.println(verifyCode);
 
             System.out.println("000000");
             System.out.println(session.getAttribute("VerifyCode"));

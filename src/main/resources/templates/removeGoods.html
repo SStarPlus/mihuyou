@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:replace="insertPart/header::header-fragment"></header>
+<body>
+    <div class="wrapper">
+        <!--    引入顶部导航条-->
+        <div th:replace="insertPart/header::header-nav"></div>
+<!--        引入边部导航条-->
+        <div th:replace="insertPart/sideBar::sidebar-fragment(path)"></div>
+        <div class="content-wrapper">
+            <div class="content-head">
+                <div class="content-fluid"></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-fluid"></div>
+            <p>删除商品</p>
+            <div>
+                <table>
+                    <tr>
+                        <td>商品编号</td>
+                        <td>商品名称</td>
+                        <td>商品类型</td>
+                        <td>商品简介</td>
+                        <td>商品价格</td>
+                        <td>商品库存</td>
+                        <td>下架商品</td>
+                        <td>修改信息</td>
+                    </tr>
+                    <tr th:each="apply , itemStat:${Goods}">
+                        <td th:text="${apply.getGoodsId()}" th:name="GoodsId"></td>
+                        <td th:text="${apply.getGoodsName()}"></td>
+                        <td th:text="${apply.getGoodsType()}"></td>
+                        <td th:text="${apply.getGoodsInformation()}"></td>
+                        <td th:text="${apply.getGoodsPrice()}"></td>
+                        <td th:text="${apply.getGoodsStock()}"></td>
+
+<!--                        <td>-->
+<!--                            <a th:href="@{/GoodsPullOff(GoodsId = ${apply.getGoodsId()})}">下架</a>-->
+                        <td>
+                            <button><a th:href="@{/GoodsPullOff(GoodsId = ${apply.getGoodsId()})}">下架</a></button>
+                        </td>
+                        <td>
+                            <button><a th:href="@{/GoodsEdit(GoodsId = ${apply.getGoodsId()}, GoodsName = ${apply.getGoodsName()},
+                                                GoodsType = ${apply.getGoodsType()},GoodsInformation = ${apply.getGoodsInformation()},
+                                                GoodsPrice = ${apply.getGoodsPrice()},GoodsStock = ${apply.getGoodsStock()})}">修改</a></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+<script th:src="@{../js/jQuery.js}"></script>
+<script th:src="@{../js/goodsType.js}"></script>
+</body>
+</html>
