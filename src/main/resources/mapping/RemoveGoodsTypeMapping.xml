@@ -13,5 +13,11 @@
         SET GoodsTypeFlag = '0'
         WHERE GoodsTypeId = '${GoodsTypeId}'
     </update>
+
+    <update id="EditGoodsType">
+        UPDATE goodstype
+        SET GoodsTypeName = '${GoodsTypeName}'
+        WHERE GoodsTypeId = '${GoodsTypeId}'
+    </update>
 </mapper>
 
