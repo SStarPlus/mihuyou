@@ -12,14 +12,15 @@ public class removeGoodsService {
     @Autowired
     private removeGoodsMapper removeGoodsMapper;
 
+    //获取商品列表
     public List<Goods> getGoodsDetail (){
         List<Goods> goods_detail = null;
         goods_detail = removeGoodsMapper.getGoodsDetail();
         return goods_detail;
     }
-
+    //删除商品
     public int removeGoods(String GoodsId){
-        System.out.println("2"+GoodsId);
+//        System.out.println("2"+GoodsId);
         int flag = removeGoodsMapper.removeGoods(GoodsId);
         return flag;
     }

@@ -14,7 +14,7 @@ public class GoodsAddController {
     @Autowired
     private GoodsAddService goodsAddService;
 
-
+//添加商品
     @RequestMapping("GoodsAdd")
     public String GoodsAdd(HttpServletRequest request , Model model, Goods goods){
         String GoodsId = request.getParameter("GoodsId");

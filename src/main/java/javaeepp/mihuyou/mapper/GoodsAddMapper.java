@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface GoodsAddMapper {
-    int AddGoods(@Param("GoodsAdd") Goods goods,String GoodsId, String GoodsName, String GoodsType, String GoodsInformation, String GoodsPrice, String GoodsStock);
+    //添加新商品
+    int AddGoods(@Param("GoodsAdd") Goods goods,String GoodsId, String GoodsName,
+                 String GoodsType, String GoodsInformation, String GoodsPrice, String GoodsStock);
 }

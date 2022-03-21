@@ -10,7 +10,7 @@ import sun.swing.plaf.GTKKeybindings;
 public class GoodsAddService {
     @Autowired
     private GoodsAddMapper goodsAddMapper;
-    public int addGoods(Goods goods, String GoodsId, String GoodsName, String GoodsType, String GoodsInformation, String GoodsPrice, String GoodsStock){
+    public int addGoods(Goods goods, String GoodsId, String GoodsName, String GoodsType,String GoodsInformation, String GoodsPrice, String GoodsStock){
         int flag = goodsAddMapper.AddGoods(goods,GoodsId,GoodsName, GoodsType,GoodsInformation,GoodsPrice,GoodsStock);
         return flag;
     }

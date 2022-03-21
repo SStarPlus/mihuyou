@@ -15,7 +15,7 @@ public class removeGoodsController {
     @Autowired
     private removeGoodsService removeGoodsService;
 
-
+//删除、修改商品
     @RequestMapping("GoodsPullOff")
     public String GoodsPullOff(HttpServletRequest request){
         String GoodsId = request.getParameter("GoodsId");

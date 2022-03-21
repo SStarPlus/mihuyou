@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 public class EditGoodsController {
     @Autowired
     private EditGoodsService editGoodsService;
-
+//修改商品信息
     @RequestMapping("EditGoods")
     public String EditGoods(HttpServletRequest request){
         String GoodsId = request.getParameter("GoodsId");

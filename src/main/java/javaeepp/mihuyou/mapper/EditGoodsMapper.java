@@ -7,5 +7,7 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface EditGoodsMapper {
-    void EditGoods(String GoodsId,String GoodsName,String GoodsType,String GoodsInformation,String GoodsPrice,String GoodsStock ,String GoodsPullOff);
+    //修改商品信息
+    void EditGoods(String GoodsId,String GoodsName,String GoodsType,
+                   String GoodsInformation,String GoodsPrice,String GoodsStock ,String GoodsPullOff);
 }
