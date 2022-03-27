@@ -1,5 +1,7 @@
 package javaeepp.mihuyou.entity;
 
+import org.springframework.lang.NonNull;
+
 public class Goods {
     private String GoodsId;
     private String GoodsName;

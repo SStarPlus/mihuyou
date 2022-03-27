@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="javaeepp.mihuyou.mapper.HomeTypesMapper">
+    <select id="getType" resultType="javaeepp.mihuyou.entity.GoodsTypeInfo">
+        SELECT gs.GoodsTypeId ,gs.GoodsTypeName
+        FROM goodstype gs INNER JOIN goodstypeflag gsf
+        WHERE gs.GoodsTypeId = gsf.GoodsTypeId
+        and gsf.GoodsTypeFlag = 1
+   </select>
+
+    <select id="getGoodsByType" resultType="javaeepp.mihuyou.entity.Goods">
+        SELECT GoodsId,GoodsName,GoodsInformation,GoodsPrice,GoodsStock
+        FROM goods
+        where GoodsType = ${GoodsTypeId}
+    </select>
+
+
+    <select id="getGoodsByKey" resultType="javaeepp.mihuyou.entity.Goods">
+        SELECT GoodsId,GoodsName,GoodsInformation,GoodsPrice,GoodsStock
+        FROM goods
+        where GoodsName like '%${key}%'
+        or GoodsId like '%${key}%'
+
+    </select>
+</mapper>

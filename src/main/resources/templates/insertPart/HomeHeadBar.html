@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="HomeHeader-fragment">
+    <meta charset="UTF-8">
+    <title>啦啦啦</title>
+    <link rel="stylesheet" th:href="@{~/plugins/jQuery-ui/jquery-ui.css}">
+</head>
+<nav class="main-header" th:fragment="hoemheader-nav" style="display: flex">
+    <form action="SelectByKey" method="post">
+        <div>
+            <input type="text" th:name="Key">
+            <button type="submit">搜索</button>
+        </div>
+    </form>
+    <ul style="float: left">
+        左边头部导航
+    </ul>
+    <ul style="float: right; margin-left: auto">
+        右边头部导航
+    </ul>
+</nav>
+</html>

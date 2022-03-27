@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        .TypeList li{list-style-type: none}
+    </style>
+</head>
+<aside class="main-sidebar" th:fragment="sidebar-fragment(path)" style="float: left; height: 100vh;width: 200px; overflow: hidden">
+    <a href="#">这是边部导航栏</a>
+    <form action="getGoodsTypesHome" method="get">
+    <nav class="func-Menu">
+        <ul class="TypeList">
+            <li style="list-style-type: none">商品类别管理</li>
+            <li th:each="GoodsType , itemStat:${GoodsTypesHome}">
+                <a th:href="@{/SelectGoodsByType(GoodsTypeId = ${GoodsType.GoodsTypeId})}"  th:name="GoodsType" th:text="${GoodsType.GoodsTypeName}"th:value="${GoodsType.GoodsTypeId}"></a>
+                <span>/</span>
+<!--                <a th:text="${GoodsType.GoodsTypeName}"></a>-->
+<!--                <span>/</span>-->
+<!--                <a th:text="${GoodsType.GoodsTypeName}"></a>-->
+            </li>
+
+
+<!--            <tr th:each="GoodsTypes, itemStat:${GoodsTypeList}">-->
+<!--                <td th:text="${GoodsTypes.GoodsTypeId}" class="goods-type-id"></td>-->
+<!--                <td th:text="${GoodsTypes.GoodsTypeName}" class="goods-type-name"></td>-->
+<!--                <td>-->
+<!--                    <div>-->
+<!--                        <button class="goods-type-edit">修改</button>-->
+<!--                        <button class="goods-type-del">删除</button>-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <li>-->
+<!--                <a>手机</a>-->
+<!--                <span>/</span>-->
+<!--                <a>运营商</a>-->
+<!--                <span>/</span>-->
+<!--                <a>数码</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>电脑</a>-->
+<!--                <span>/</span>-->
+<!--                <a>办公</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>家居</a>-->
+<!--                <span>/</span>-->
+<!--                <a>家具</a>-->
+<!--                <span>/</span>-->
+<!--                <a>家装</a>-->
+<!--                <span>/</span>-->
+<!--                <a>厨具</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>男装</a>-->
+<!--                <span>/</span>-->
+<!--                <a>女装</a>-->
+<!--                <span>/</span>-->
+<!--                <a>童装</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>美妆</a>-->
+<!--                <span>/</span>-->
+<!--                <a>个人清洁</a>-->
+<!--                <span>/</span>-->
+<!--                <a>宠物</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>女鞋</a>-->
+<!--                <span>/</span>-->
+<!--                <a>箱包</a>-->
+<!--                <span>/</span>-->
+<!--                <a>钟表</a>-->
+<!--                <span>/</span>-->
+<!--                <a>珠宝</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>男鞋</a>-->
+<!--                <span>/</span>-->
+<!--                <a>运动</a>-->
+<!--                <span>/</span>-->
+<!--                <a>户外</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>房产</a>-->
+<!--                <span>/</span>-->
+<!--                <a>汽车</a>-->
+<!--                <span>/</span>-->
+<!--                <a>汽车用具</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>母婴</a>-->
+<!--                <span>/</span>-->
+<!--                <a>玩具乐器</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>食品</a>-->
+<!--                <span>/</span>-->
+<!--                <a>酒类</a>-->
+<!--                <span>/</span>-->
+<!--                <a>生鲜</a>-->
+<!--                <span>/</span>-->
+<!--                <a>特产</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>艺术</a>-->
+<!--                <span>/</span>-->
+<!--                <a>礼品鲜花</a>-->
+<!--                <span>/</span>-->
+<!--                <a>绿植</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>图书</a>-->
+<!--                <span>/</span>-->
+<!--                <a>文娱</a>-->
+<!--                <span>/</span>-->
+<!--                <a>教育</a>-->
+<!--            </li>-->
+
+<!--            <li>-->
+<!--                <a>机票</a>-->
+<!--                <span>/</span>-->
+<!--                <a>酒店</a>-->
+<!--                <span>/</span>-->
+<!--                <a>生活</a>-->
+<!--            </li>-->
+
+        </ul>
+    </nav>
+    </form>
+</aside>
+</html>

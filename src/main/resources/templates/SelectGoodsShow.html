@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <div class="wrapper">
+        <!--    引入头部导航栏-->
+        <div th:replace="insertPart/header::header-nav"></div>
+        <div class="content">
+            <div class="content-fluid">
+                <div style="height: 100px; width: 100px "></div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <td>GoodsId</td>
+                <td>GoodsName</td>
+                <td>GoodsInformation</td>
+                <td>GoodsPrice</td>
+                <td>GoodsStock</td>
+            </tr>
+            <tr th:each="Goods, itemStat:${GoodsSelectByKey}">
+                <td th:text="${Goods.GoodsId}"></td>
+                <td th:text="${Goods.GoodsName}"></td>
+                <td th:text="${Goods.GoodsInformation}"></td>
+                <td th:text="${Goods.GoodsPrice}"></td>
+                <td th:text="${Goods.GoodsStock}"></td>
+            </tr>
+            <tr th:each="Goods, itemStat:${GoodsSelectTypeId}">
+                <td th:text="${Goods.GoodsId}"></td>
+                <td th:text="${Goods.GoodsName}"></td>
+                <td th:text="${Goods.GoodsInformation}"></td>
+                <td th:text="${Goods.GoodsPrice}"></td>
+                <td th:text="${Goods.GoodsStock}"></td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+</html>

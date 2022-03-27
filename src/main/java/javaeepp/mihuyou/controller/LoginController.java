@@ -47,7 +47,7 @@ public class LoginController {
             flag = loginService.loginCheck(user,UserNum,UserPwd);
             System.out.println(flag);
             if (flag>0 &&verifyCode.equals(session.getAttribute("VerifyCode"))) {
-                return "test";
+                return "redirect:home";
             }
             else {
                 System.out.println("账号或密码错误");
@@ -80,7 +80,7 @@ public class LoginController {
         flag = loginService.loginManagerCheck(UserManager,ManagerNum,ManagerPwd);
         System.out.println(flag);
         if (flag>0) {
-            return "testManager";
+            return "manageMenu";
         }
         else {
             System.out.println("账号或密码错误");

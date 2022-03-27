@@ -38,6 +38,8 @@ public class ManageMenuController {
         return "removeGoodsType";
     }
 
+
+
     @RequestMapping("AddGoods")
     public String AddGoods(Model model){
         return "addGoods";
@@ -69,4 +71,9 @@ public class ManageMenuController {
         model.addAttribute("GoodsPullOff",GoodsPullOff);
         return "EditGoods";
     }
+
+//    @RequestMapping("/home")
+//    public String ShowHome(){
+//        return "redirect:getGoodsTypesHome";
+//    }
 }
