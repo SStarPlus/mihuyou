@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <header th:replace="insertPart/HomeHeadBar::HomeHeader-fragment"></header>
+<style>
+    .TypeList li{list-style-type: none}
+    .TypeList{ width: 60%;
+        height: 100px;
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-start;}
+    .TypeListLi{
+        box-sizing: border-box;
+        background-color: white;
+        flex: 0 0 33%;
+        height: 25px;
+        /*border: 1px solid red;*/
+    }
+</style>
 <body>
 <div class="wrapper">
 <!--        引入头部导航栏-->

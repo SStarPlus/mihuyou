@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <title>啦啦啦</title>
     <link rel="stylesheet" th:href="@{~/plugins/jQuery-ui/jquery-ui.css}">
+    <style>
+        .inputSel{
+            position: absolute; left: 600px;
+            text-align:center;vertical-align:middle;
+        }
+        .inputSty{
+            height: 30px;
+            width: 300px;
+        }
+        .btnSel{
+            height: 30px;
+            width: 50px;
+        }
+    </style>
 </head>
 <nav class="main-header" th:fragment="hoemheader-nav" style="display: flex">
     <form action="SelectByKey" method="post">
-        <div>
-            <input type="text" th:name="Key">
-            <button type="submit">搜索</button>
+        <div class="inputSel">
+            <input type="text" class="inputSty" th:name="Key">
+            <button type="submit" class="btnSel">搜索</button>
         </div>
     </form>
     <ul style="float: left">

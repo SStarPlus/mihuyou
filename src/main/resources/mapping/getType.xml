@@ -12,6 +12,7 @@
         SELECT GoodsId,GoodsName,GoodsInformation,GoodsPrice,GoodsStock
         FROM goods
         where GoodsType = ${GoodsTypeId}
+        and GoodsPullOff = 1
     </select>
 
 
@@ -20,6 +21,6 @@
         FROM goods
         where GoodsName like '%${key}%'
         or GoodsId like '%${key}%'
-
+        and GoodsPullOff = 1
     </select>
 </mapper>

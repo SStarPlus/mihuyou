@@ -18,7 +18,10 @@ public class GoodsTypeSelectController {
     public String getGoodsTypesHome(Model model){
 
         model.addAttribute("GoodsTypesHome", getGoodsTypeHomeService.getType());
+//        return "/insertPart/HomeSideBar";
+
         return "Home";
+        //gaizheng
     }
 
     @RequestMapping("SelectGoodsByType")
