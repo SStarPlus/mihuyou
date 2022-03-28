@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="header-fragment">
-    <meta charset="UTF-8">
+    <base th:href="${#request.getScheme()+'://'+#request.getServerName()+':'+#request.getServerPort()+#request.getContextPath()+'/'}">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <title>啦啦啦</title>
     <link rel="stylesheet" th:href="@{~/plugins/jQuery-ui/jquery-ui.css}">
 </head>

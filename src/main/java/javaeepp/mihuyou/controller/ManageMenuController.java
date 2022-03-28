@@ -60,6 +60,8 @@ public class ManageMenuController {
         String GoodsPrice = request.getParameter("GoodsPrice");
         String GoodsStock = request.getParameter("GoodsStock");
         String GoodsPullOff = request.getParameter("GoodsPullOff");
+        String GoodsPictureString = request.getParameter("GoodsPictureString");
+        System.out.println(GoodsPictureString);
 //        System.out.println(GoodsId);
 
         model.addAttribute("GoodsId",GoodsId);
@@ -69,6 +71,7 @@ public class ManageMenuController {
         model.addAttribute("GoodsPrice",GoodsPrice);
         model.addAttribute("GoodsStock", GoodsStock);
         model.addAttribute("GoodsPullOff",GoodsPullOff);
+        model.addAttribute("GoodsPictureString",GoodsPictureString);
         return "EditGoods";
     }
 

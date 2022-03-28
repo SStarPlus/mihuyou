@@ -24,4 +24,9 @@ public class removeGoodsService {
         int flag = removeGoodsMapper.removeGoods(GoodsId);
         return flag;
     }
+
+    //获取一个商品图片信息
+    public List<Goods> getAGoodPicture(String GoodsId){
+        return removeGoodsMapper.getAGoodPicture(GoodsId);
+    }
 }

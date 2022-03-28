@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
 <header th:replace="insertPart/header::header-fragment"></header>
 <body>
 <div class="wrapper">
@@ -14,7 +14,7 @@
     </div>
     <div class="content">
         <div class="content-fluid">
-            <form action="GoodsAdd" method="post">
+            <form action="GoodsAdd" method="post" enctype="multipart/form-data">
                 <p>添加商品</p>
                 <div>
                     <ul>
@@ -43,7 +43,7 @@
                     </ul>
                     <ul>
                         <li>商品图片</li>
-                        <li><input type="file" id="test-image-file" name="test" accept="image/gif, image/jpeg, image/png, image/jpg"></li>
+                        <li><input type="file" id="test-image-file" th:name="GoodsPicture" accept="image/gif, image/jpeg, image/png, image/jpg"></li>
                     </ul>
                     <ul>
                         <li><input type="submit" th:value="添加"></li>
