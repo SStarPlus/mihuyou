@@ -2,43 +2,139 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>SelectGoods</title>
+    <style>
+        body{
+            background-color: WhiteSmoke;
+        }
+/*<!--        顶部导航条-->*/
+        .inputSel{
+            position: absolute; left: 350px;
+            text-align:center;vertical-align:middle;
+            font-size: 0;
+        }
+        .inputSty{
+            height: 30px;
+            width: 300px;
+            border: none;
+        }
+        .btnSel{
+            height: 30px;
+            width: 50px;
+            border: none;
+        }
+        /**/
+
+
+
+        .s-img{
+            width: 200px;
+            height: 200px;
+            /*border: 2px solid black;*/
+        }
+        .showUl{
+            position: absolute;left: 100px;
+            width: 90%;
+            height: auto;
+            display: flex;
+            flex-flow: row wrap;
+            align-content: flex-start;}
+        .LiTotal{
+            list-style: none;
+            box-sizing: border-box;
+            background-color: white;
+            flex: 0 0 20%;
+            height: 350px;
+            border: 1px solid black;
+            margin: 5px 5px;
+        }
+         .inputSel{
+             position: absolute; left: 600px;
+             text-align:center;vertical-align:middle;
+         }
+        .inputSty{
+            height: 30px;
+            width: 300px;
+        }
+        .btnSel{
+            height: 30px;
+            width: 50px;
+        }
+
+    </style>
 </head>
 <body>
     <div class="wrapper">
         <!--    引入头部导航栏-->
-        <div th:replace="insertPart/header::header-nav"></div>
+        <div th:replace="insertPart/HomeHeadBar::hoemheader-nav"></div>
         <div class="content">
             <div class="content-fluid">
                 <div style="height: 100px; width: 100px "></div>
             </div>
         </div>
     </div>
-    <div>
-        <table>
-            <tr>
-                <td>GoodsId</td>
-                <td>GoodsName</td>
-                <td>GoodsInformation</td>
-                <td>GoodsPrice</td>
-                <td>GoodsStock</td>
-            </tr>
-            <tr th:each="Goods, itemStat:${GoodsSelectByKey}">
-                <td th:text="${Goods.GoodsId}"></td>
-                <td th:text="${Goods.GoodsName}"></td>
-                <td th:text="${Goods.GoodsInformation}"></td>
-                <td th:text="${Goods.GoodsPrice}"></td>
-                <td th:text="${Goods.GoodsStock}"></td>
-            </tr>
-            <tr th:each="Goods, itemStat:${GoodsSelectTypeId}">
-                <td th:text="${Goods.GoodsId}"></td>
-                <td th:text="${Goods.GoodsName}"></td>
-                <td th:text="${Goods.GoodsInformation}"></td>
-                <td th:text="${Goods.GoodsPrice}"></td>
-                <td th:text="${Goods.GoodsStock}"></td>
-            </tr>
+    <ul class="showUl">
+        <li class="LiTotal" th:each="Goods,itemStat:${GoodsSelectByKey}">
+            <div class="showTotal">
+                <div class="s-img"></div>
+                <div class="s-price">
+                    <strong>
+                        <em>￥</em>
+                        <i th:text="${Goods.GoodsPrice}"></i>
+                    </strong>
+                </div>
+                <div class="s-information">
+                    <a target="blank" th:text="${Goods.GoodsInformation}"></a>
+                </div>
+            </div>
+        </li>
 
-        </table>
-    </div>
+
+        <ul class="showUl">
+            <li class="LiTotal" th:each="Goods,itemStat:${GoodsSelectTypeId}">
+                <div class="showTotal">
+                    <div class="s-img"></div>
+                    <div class="s-price">
+                        <strong>
+                            <em>￥</em>
+                            <i th:text="${Goods.GoodsPrice}"></i>
+                        </strong>
+                    </div>
+                    <div class="s-information">
+                        <a target="blank" th:text="${Goods.GoodsInformation}"></a>
+                    </div>
+                </div>
+            </li>
+<!--        <li class="LiTotal" th:each="Goods,itemStat:${GoodsSelectByKey}" th:if="">-->
+    </ul>
+
+<!--    <div>-->
+<!--        <table>-->
+<!--            <tr>-->
+<!--                <td>GoodsId</td>-->
+<!--                <td>GoodsName</td>-->
+<!--                <td>GoodsInformation</td>-->
+<!--                <td>GoodsPrice</td>-->
+<!--                <td>GoodsStock</td>-->
+<!--            </tr>-->
+<!--            <tr th:each="Goods, itemStat:${GoodsSelectByKey}">-->
+<!--                <td th:text="${Goods.GoodsId}"></td>-->
+<!--                <td th:text="${Goods.GoodsName}"></td>-->
+<!--                <td th:text="${Goods.GoodsInformation}"></td>-->
+<!--                <td th:text="${Goods.GoodsPrice}"></td>-->
+<!--                <td th:text="${Goods.GoodsStock}"></td>-->
+<!--            </tr>-->
+<!--            <tr th:each="Goods, itemStat:${GoodsSelectTypeId}">-->
+<!--                <td th:text="${Goods.GoodsId}"></td>-->
+<!--                <td th:text="${Goods.GoodsName}"></td>-->
+<!--                <td th:text="${Goods.GoodsInformation}"></td>-->
+<!--                <td th:text="${Goods.GoodsPrice}"></td>-->
+<!--                <td th:text="${Goods.GoodsStock}"></td>-->
+<!--            </tr>-->
+<!--        </table>-->
+<!--    </div>-->
+
+
+
 </body>
 </html>

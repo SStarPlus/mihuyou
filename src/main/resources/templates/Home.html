@@ -2,37 +2,52 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <header th:replace="insertPart/HomeHeadBar::HomeHeader-fragment"></header>
 <style>
-    .TypeList li{list-style-type: none}
+    body{
+        background-color: WhiteSmoke;
+    }
     .TypeList{ width: 60%;
         height: 100px;
         display: flex;
         flex-flow: row wrap;
-        align-content: flex-start;}
+
+        align-content: flex-start;
+
+
+    }
     .TypeListLi{
+        list-style: none;
         box-sizing: border-box;
         background-color: white;
         flex: 0 0 33%;
         height: 25px;
+        background-color: white;
         /*border: 1px solid red;*/
     }
+    a{text-decoration: none;
+        color: black;
+    }
+    .TypeListLi-a:hover{text-decoration: none;
+        background-color: #DCDCDC;
+    }
+
 </style>
 <body>
-<div class="wrapper">
-<!--        引入头部导航栏-->
-    <div th:replace="insertPart/HomeHeadBar::hoemheader-nav"></div>
-<!--        引入边部导航栏-->
-    <div th:replace="insertPart/HomeSideBar::sidebar-fragment(${path})"></div>
-    <div class="content-wrapper">
-        <div class="content-head">
-            <div class="content-fluid"></div>
+    <div class="wrapper">
+        <!--    引入头部导航栏-->
+        <div th:replace="insertPart/HomeHeadBar::hoemheader-nav"></div>
+        <!--    引入边部导航栏-->
+        <div th:replace="insertPart/HomeSideBar::sidebar-fragment(${path})"></div>
+        <div class="content-wrapper">
+            <div class="content-head">
+                <div class="content-fluid"></div>
+            </div>
         </div>
-    </div>
-    <div class="content">
-        <div class="content-fluid">
+        <div class="content">
+            <div class="content-fluid">
 
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>
 

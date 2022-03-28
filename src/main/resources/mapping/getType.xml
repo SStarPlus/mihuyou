@@ -21,6 +21,7 @@
         FROM goods
         where GoodsName like '%${key}%'
         or GoodsId like '%${key}%'
+        or GoodsInformation like '%${key}%'
         and GoodsPullOff = 1
     </select>
 </mapper>
