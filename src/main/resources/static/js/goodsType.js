@@ -57,7 +57,8 @@ $(function () {
             "取消":function () {
                 $("#edit-goodsType-dialog").dialog("close");
             }
-        }
+        },
+        modal: true,
     })
     // 点击编辑按钮弹出编辑dialog
     $(".goods-type-edit").click(function () {
