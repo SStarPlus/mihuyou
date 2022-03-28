@@ -5,4 +5,10 @@
         insert into goods
         VALUES(${GoodsId},'${GoodsName}',${GoodsType},'${GoodsInformation}' , ${GoodsPrice},${GoodsStock},1)
     </insert>
+
+    <insert id="AddGoodsPicture">
+        INSERT INTO goodspicture
+        SET GoodsId = '${GoodsId}',
+		    GoodsPictureString = '${GoodsPictureString}'
+    </insert>
 </mapper>

@@ -1,6 +1,7 @@
 package javaeepp.mihuyou.controller;
 
 import javaeepp.mihuyou.service.EditGoodsService;
+import javaeepp.mihuyou.service.RemoveGoodsTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 public class EditGoodsController {
     @Autowired
     private EditGoodsService editGoodsService;
+
+    @Autowired
+    private RemoveGoodsTypeService removeGoodsTypeService;
 //修改商品信息
     @RequestMapping("EditGoods")
     public String EditGoods(HttpServletRequest request){

@@ -34,6 +34,8 @@
                         <td th:text="${apply.getGoodsInformation()}"></td>
                         <td th:text="${apply.getGoodsPrice()}"></td>
                         <td th:text="${apply.getGoodsStock()}"></td>
+<!--                        图片信息-->
+                        <input th:text="${apply.getGoodsPictureString()}" type="hidden">
 
 <!--                        <td>-->
 <!--                            <a th:href="@{/GoodsPullOff(GoodsId = ${apply.getGoodsId()})}">下架</a>-->
@@ -43,7 +45,7 @@
                         <td>
                             <button><a th:href="@{/GoodsEdit(GoodsId = ${apply.getGoodsId()}, GoodsName = ${apply.getGoodsName()},
                                                 GoodsType = ${apply.getGoodsType()},GoodsInformation = ${apply.getGoodsInformation()},
-                                                GoodsPrice = ${apply.getGoodsPrice()},GoodsStock = ${apply.getGoodsStock()})}">修改</a></button>
+                                                GoodsPrice = ${apply.getGoodsPrice()},GoodsStock = ${apply.getGoodsStock()},GoodsPictureString = ${apply.getGoodsPictureString()})}">修改</a></button>
                         </td>
                     </tr>
                 </table>
