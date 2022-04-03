@@ -46,7 +46,10 @@ public class LoginController {
             int flag = 0;
             flag = loginService.loginCheck(user,UserNum,UserPwd);
             System.out.println(flag);
+
             if (flag>0 &&verifyCode.equals(session.getAttribute("VerifyCode"))) {
+                redirectAttributes.addAttribute("userNum",UserNum);
+                redirectAttributes.addAttribute("userPwd",UserPwd);
                 return "redirect:home";
             }
             else {

@@ -9,19 +9,19 @@
    </select>
 
     <select id="getGoodsByType" resultType="javaeepp.mihuyou.entity.Goods">
-        SELECT GoodsId,GoodsName,GoodsInformation,GoodsPrice,GoodsStock
-        FROM goods
-        where GoodsType = ${GoodsTypeId}
-        and GoodsPullOff = 1
+        SELECT gs.GoodsId,gs.GoodsName,gs.GoodsInformation,gs.GoodsPrice,gs.GoodsStock,gsp.GoodsPictureString
+        FROM goods gs INNER JOIN goodspicture gsp on gs.GoodsId = gsp.GoodsId
+				where gs.GoodsType = ${GoodsTypeId}
+        and gs.GoodsPullOff = 1
     </select>
 
 
     <select id="getGoodsByKey" resultType="javaeepp.mihuyou.entity.Goods">
-        SELECT GoodsId,GoodsName,GoodsInformation,GoodsPrice,GoodsStock
-        FROM goods
-        where GoodsName like '%${key}%'
-        or GoodsId like '%${key}%'
-        or GoodsInformation like '%${key}%'
-        and GoodsPullOff = 1
+        SELECT gs.GoodsId,gs.GoodsName,gs.GoodsInformation,gs.GoodsPrice,gs.GoodsStock,gsp.GoodsPictureString
+        FROM goods gs  INNER JOIN goodspicture gsp  on gs.GoodsId = gsp.GoodsId
+        where gs.GoodsName like '%${key}%'
+        or gs.GoodsId like '%${key}%'
+        or gs.GoodsInformation like '%${key}%'
+        and gs.GoodsPullOff = 1
     </select>
 </mapper>

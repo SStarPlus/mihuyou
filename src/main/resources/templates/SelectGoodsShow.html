@@ -76,7 +76,9 @@
     <ul class="showUl">
         <li class="LiTotal" th:each="Goods,itemStat:${GoodsSelectByKey}">
             <div class="showTotal">
-                <div class="s-img"></div>
+                <div class="s-img" >
+                    <img th:src="@{../../static/pictures/{id}(id=${Goods.GoodsPictureString})}" width="200px" height="200px">
+                </div>
                 <div class="s-price">
                     <strong>
                         <em>￥</em>
@@ -93,7 +95,9 @@
         <ul class="showUl">
             <li class="LiTotal" th:each="Goods,itemStat:${GoodsSelectTypeId}">
                 <div class="showTotal">
-                    <div class="s-img"></div>
+                    <div class="s-img" >
+                        <img th:src="@{../../static/pictures/{id}(id=${Goods.GoodsPictureString})}" width="200px" height="200px">
+                    </div>
                     <div class="s-price">
                         <strong>
                             <em>￥</em>
