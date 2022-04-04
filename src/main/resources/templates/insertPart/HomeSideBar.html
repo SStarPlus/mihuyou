@@ -28,7 +28,9 @@
     <nav class="func-Menu">
         <ul class="TypeList">
             <li th:each="GoodsType , itemStat:${GoodsTypesHome}" class="TypeListLi">
-                <a class="TypeListLi-a" th:href ="@{/SelectGoodsByType(GoodsTypeId = ${GoodsType.GoodsTypeId})} "
+
+                <a class="TypeListLi-a" th:href="@{/SelectGoodsByType(GoodsTypeId = ${GoodsType.GoodsTypeId})} "
+
                    th:name="GoodsType" th:text="${GoodsType.GoodsTypeName}"th:value="${GoodsType.GoodsTypeId}"></a>
             </li>
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="javaeepp.mihuyou.mapper.GoodsStarMapper">
+    <insert id="StarAGood">
+        INSERT INTO star
+        SET StarGoodsId = '${StarGoodsId}',
+		    StarDate = '${StarDate}',
+		    StarUId = '${StarUId}'
+    </insert>
+
+    <delete id="CancelStarAGood">
+        DELETE FROM star
+        WHERE StarGoodsId = '${StarGoodsId}' AND StarUId = '${StarUId}'
+    </delete>
+
+    <select id="GetGoodsByGoodsId" resultType="javaeepp.mihuyou.entity.Goods">
+        SELECT g.GoodsId, g.GoodsInformation, g.GoodsName, g.GoodsPrice, g.GoodsStock, gp.GoodsPictureString
+        FROM goods g
+	        INNER JOIN goodspicture gp ON g.GoodsId = gp.GoodsId
+        WHERE g.GoodsId in 
+        <foreach collection="GoodsIdList" item="GoodsId" index="index" open="(" separator=", " close=")">
+            #{GoodsId}
+        </foreach>
+        AND g.GoodsPullOff = 1
+    </select>
+
+    <select id="GetStarGoodsInfoByUID" resultType="javaeepp.mihuyou.entity.Star">
+        SELECT StarCount, StarGoodsId, StarDate, StarUId
+        FROM star
+        WHERE StarUId = '${UId}'
+    </select>
+</mapper>
