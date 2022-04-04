@@ -63,4 +63,41 @@ $(function () {
             }
         })
     })
+
+    $(".fast-cancel-star-btn").click(function () {
+        $(".item-check").css("display", "block");
+    })
+
+    $(".item-mask").click(function () {
+        if($(this).siblings("i").hasClass("z-item-checked")){
+            $(this).siblings("i").removeClass("z-item-checked");
+            $(this).siblings("i").css("background-color", "#2b2b2b");
+        }else {
+            $(this).siblings("i").addClass("z-item-checked");
+            $(this).siblings("i").css("background-color", "rgba(255, 0, 9, 0.67)");
+        }
+    })
+
+    $(".confirm-fast-cancel-star-btn").click(function () {
+        var cancelStarList = new Array();
+        var obj = $(".z-item-checked");
+        for (var i = 0; i < obj.length; i++) {
+            cancelStarList[i] = $(".z-item-checked:eq(" + i + ")").data("gid");
+        }
+        console.log(cancelStarList);
+
+        $.ajax({
+                type:"get",
+                url:"/cancelStarGoods",
+                data:{"CancelStarGoodIdList": JSON.stringify(cancelStarList)},
+                dataType:"JSON",
+            success:function (data) {
+                alert("取消收藏成功！");
+                window.location.reload();
+            },
+            error(data){
+                // alert(data.message);
+            }
+        })
+    })
 })

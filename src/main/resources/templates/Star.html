@@ -23,10 +23,18 @@
             <script th:src="@{../static/js/star.js}"></script>
             <div class="star-main-page-top"></div>
             <div class="star-main-page-detail">
-                <div class="key-word-search"></div>
+                <div class="key-word-search">
+                    <div></div>
+                    <div>
+                        <div class="fast-cancel-star-box">
+                            <a class="fast-cancel-star-btn" href="javascript:;">批量取消收藏</a>
+                            <a class="confirm-fast-cancel-star-btn" href="javascript:;">取消收藏</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="star-good-list">
                     <ul class="show-star-good-box">
-                        <li class="LiTotal" th:each="Goods,itemStat:${starGoodsList}" style="float: left; margin-left: 20px">
+                        <li class="LiTotal" th:each="Goods,itemStat:${starGoodsList}">
                             <div class="showTotal">
                                 <div class="s-img" >
                                     <img th:src="@{../../static/pictures/{id}(id=${Goods.GoodsPictureString})}" width="200px" height="200px">
@@ -46,9 +54,13 @@
                             </div>
                             <div class="showFunc">
                                 <div class="goodStar">
-                                    <a class="star-page-cancel-star" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击取消收藏"
+                                    <a class="star-page-c.ancel-star" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击取消收藏"
                                        style="display: block">取消收藏</a>
                                 </div>
+                            </div>
+                            <div class="item-check">
+                                <i class="i-check" th:data-gid="${Goods.getGoodsId()}"></i>
+                                <div class="item-mask"></div>
                             </div>
                         </li>
                     </ul>

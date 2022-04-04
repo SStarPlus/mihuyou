@@ -50,6 +50,8 @@ public class LoginController {
             if (flag>0 &&verifyCode.equals(session.getAttribute("VerifyCode"))) {
                 redirectAttributes.addAttribute("userNum",UserNum);
                 redirectAttributes.addAttribute("userPwd",UserPwd);
+
+                session.setAttribute("userNum", UserNum);
                 return "redirect:home";
             }
             else {
