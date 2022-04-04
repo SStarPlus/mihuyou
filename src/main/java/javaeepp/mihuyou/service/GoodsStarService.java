@@ -1,5 +1,7 @@
 package javaeepp.mihuyou.service;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import javaeepp.mihuyou.entity.Goods;
 import javaeepp.mihuyou.entity.ResultBean;
 import javaeepp.mihuyou.entity.Star;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -20,9 +23,9 @@ public class GoodsStarService {
     @Autowired
     GoodsStarMapper goodsStarMapper;
 //    收藏指定用户的一件指定商品
-    public ResultBean starAGood(HttpServletRequest request){
+    public ResultBean starAGood(HttpServletRequest request, HttpSession session){
         String StarGoodId = request.getParameter("StarGoodId");
-        String UID = "10001";
+        String UID = session.getAttribute("userNum").toString();;
         Date date = new Date();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(dateFormat.format(date));
@@ -31,11 +34,24 @@ public class GoodsStarService {
         return ResultBean.success();
     }
 //    取消收藏指定用户的一件指定商品
-    public ResultBean cancelStarAGood(HttpServletRequest request){
+    public ResultBean cancelStarAGood(HttpServletRequest request, HttpSession session){
         String CancelStarGoodId = request.getParameter("CancelStarGoodId");
         System.out.println(CancelStarGoodId);
-        String UID = "10001";
+        String UID = session.getAttribute("userNum").toString();;
         goodsStarMapper.CancelStarAGood(CancelStarGoodId, UID);
+
+        return ResultBean.success();
+    }
+//    批量取消指定用户的指定商品
+    public ResultBean cancelStarGoods(HttpServletRequest request, HttpSession session){
+        String CancelStarGoods = request.getParameter("CancelStarGoodIdList");
+        JSONArray jsonCancelStarGoods = JSON.parseArray(CancelStarGoods);
+
+        String UID = session.getAttribute("userNum").toString();
+
+        for (int i = 0; i < jsonCancelStarGoods.size(); i++) {
+            goodsStarMapper.CancelStarAGood(jsonCancelStarGoods.get(i).toString(), UID);
+        }
 
         return ResultBean.success();
     }

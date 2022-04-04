@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -18,8 +19,9 @@ public class GoodsStarController {
     GoodsStarService goodsStarService;
 
     @RequestMapping("/toStarPage")
-    public String toStarPage(HttpServletRequest request, Model model){
-        List<Goods> starGoodsList = goodsStarService.getStarGoodsList("10001");
+    public String toStarPage(HttpServletRequest request, Model model, HttpSession session){
+        String UID = session.getAttribute("userNum").toString();
+        List<Goods> starGoodsList = goodsStarService.getStarGoodsList(UID);
 
         model.addAttribute("starGoodsList", starGoodsList);
         return "Star";
@@ -27,13 +29,19 @@ public class GoodsStarController {
 
     @RequestMapping("/starAGood")
     @ResponseBody
-    public ResultBean starAGood(HttpServletRequest request){
-        return goodsStarService.starAGood(request);
+    public ResultBean starAGood(HttpServletRequest request, HttpSession session){
+        return goodsStarService.starAGood(request, session);
     }
 
     @RequestMapping("/cancelStarAGood")
     @ResponseBody
-    public ResultBean cancelStarAGood(HttpServletRequest request){
-        return goodsStarService.cancelStarAGood(request);
+    public ResultBean cancelStarAGood(HttpServletRequest request, HttpSession session){
+        return goodsStarService.cancelStarAGood(request, session);
+    }
+
+    @RequestMapping("/cancelStarGoods")
+    @ResponseBody
+    public ResultBean cancelStarGoods(HttpServletRequest request, HttpSession session){
+        return goodsStarService.cancelStarGoods(request, session);
     }
 }
