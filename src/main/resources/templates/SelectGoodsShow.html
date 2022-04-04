@@ -77,7 +77,7 @@
         <li class="LiTotal" th:each="Goods,itemStat:${GoodsSelectByKey}">
             <div class="showTotal">
                 <div class="s-img" >
-                    <img th:src="@{../../static/pictures/{id}(id=${Goods.GoodsPictureString})}" width="200px" height="200px">
+                    <img th:src="@{../static/pictures/{id}(id=${Goods.GoodsPictureString})}" width="200px" height="200px">
                 </div>
                 <div class="s-price">
                     <strong>
@@ -87,6 +87,14 @@
                 </div>
                 <div class="s-information">
                     <a target="blank" th:text="${Goods.GoodsInformation}"></a>
+                </div>
+            </div>
+            <div class="showFunc">
+                <div class="goodStar">
+                    <a class="star" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击收藏"
+                    style="display: block">收藏</a>
+                    <a class="cancel-star" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击取消收藏"
+                       style="display: none">取消收藏</a>
                 </div>
             </div>
         </li>
@@ -139,6 +147,7 @@
 <!--    </div>-->
 
 
-
+<script th:src="@{../static/js/jQuery.js}"></script>
+<script th:src="@{../static/js/star.js}"></script>
 </body>
 </html>
