@@ -8,7 +8,7 @@ public class DateUtil {
     public String getNowDate(){
         String nowDate = null;
         Date date = new Date();
-        DateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        DateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
         nowDate = simpleDateFormat.format(date);
         System.out.println(nowDate);
         return nowDate;

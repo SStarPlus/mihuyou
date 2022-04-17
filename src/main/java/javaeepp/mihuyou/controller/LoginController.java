@@ -46,7 +46,12 @@ public class LoginController {
             int flag = 0;
             flag = loginService.loginCheck(user,UserNum,UserPwd);
             System.out.println(flag);
+
             if (flag>0 &&verifyCode.equals(session.getAttribute("VerifyCode"))) {
+                redirectAttributes.addAttribute("userNum",UserNum);
+                redirectAttributes.addAttribute("userPwd",UserPwd);
+
+                session.setAttribute("userNum", UserNum);
                 return "redirect:home";
             }
             else {
@@ -62,13 +67,17 @@ public class LoginController {
         }
         return "login";
     }
+    //调试用登录
+    @RequestMapping("DebugLogin")
+    public String debugLogin(HttpSession session, Model model){
+        session.setAttribute("userNum", "10001");
+        return "redirect:home";
+    }
 
     @RequestMapping("user_registration")
     public String userRegistration(){
         return "enroll";
     }
-
-
 
     //管理员登录
     @RequestMapping("managerLoginJudge")

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:replace="insertPart/HomeHeadBar::HomeHeader-fragment"></header>
+<body>
+<div class="wrapper">
+    <!--    引入头部导航栏-->
+    <div th:replace="insertPart/HomeHeadBar::hoemheader-nav"></div>
+
+    <div class="content-wrapper">
+        <div class="content-head">
+            <div class="content-fluid"></div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-fluid">
+<!--            这里是css-->
+            <link rel="stylesheet" th:href="@{../static/css/star.css}">
+<!--            这里是js-->
+            <script th:src="@{../static/js/jQuery.js}"></script>
+            <script th:src="@{../static/js/star.js}"></script>
+            <div class="star-main-page-top"></div>
+            <div class="star-main-page-detail">
+                <div class="key-word-search">
+                    <div></div>
+                    <div>
+                        <div class="fast-cancel-star-box">
+                            <a class="fast-cancel-star-btn" href="javascript:;">批量取消收藏</a>
+                            <a class="confirm-fast-cancel-star-btn" href="javascript:;">取消收藏</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="star-good-list">
+                    <ul class="show-star-good-box">
+                        <li class="LiTotal" th:each="Goods,itemStat:${starGoodsList}">
+                            <div class="showTotal">
+                                <div class="s-img" >
+                                    <img th:src="@{../../static/pictures/{id}(id=${Goods.GoodsPictureString})}" width="200px" height="200px">
+                                </div>
+                                <div class="s-name">
+                                    <a href="javascript:;" target="_blank" th:text="${Goods.getGoodsName()}"></a>
+                                </div>
+                                <div class="s-price">
+                                    <strong>
+                                        <em>￥</em>
+                                        <i th:text="${Goods.GoodsPrice}"></i>
+                                    </strong>
+                                </div>
+                                <div class="s-information">
+                                    <a target="blank" th:text="${Goods.GoodsInformation}"></a>
+                                </div>
+                            </div>
+                            <div class="showFunc">
+                                <div class="goodStar">
+                                    <a class="star-page-cancel-star" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击取消收藏"
+                                       style="display: block">取消收藏</a>
+                                </div>
+                            </div>
+                            <div class="item-check">
+                                <i class="i-check" th:data-gid="${Goods.getGoodsId()}"></i>
+                                <div class="item-mask"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

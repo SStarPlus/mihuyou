@@ -37,12 +37,12 @@ public class GoodsAddService {
 
 //    添加商品
     private String GoodsPictureTranslation(Goods goods, HttpServletRequest request){
-        String nowDate = null;
-        Date date = new Date();
-        DateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-        nowDate = simpleDateFormat.format(date);
-        System.out.println(nowDate);
-        String newFileName = nowDate + ".png";
+//        获取商品照片文件名
+        String oldFileName = goods.getGoodsPicture().getOriginalFilename();
+//        获取商品照片文件后缀名
+        String fileSuffix = oldFileName.substring(oldFileName.lastIndexOf("."), oldFileName.length());
+        String newFileName = new DateUtil().getNowDate() + new RandomUtil().getRandom() + fileSuffix;
+        System.out.println(newFileName);
 
 //        String savePath = request.getSession().getServletContext().getRealPath("/uploads/");
         String savePath = System.getProperty("user.dir") + "/src//main/resources/static/pictures";

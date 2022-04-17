@@ -30,7 +30,14 @@ public class GoodsTypeSelectController {
         System.out.println(GoodsTypeId);
 
         model.addAttribute("GoodsSelectTypeId" , getGoodsTypeHomeService.getGoodsByType(GoodsTypeId));
-        return "SelectGoodsShow";
+
+        int flag = getGoodsTypeHomeService.getGoodsByType(GoodsTypeId).size();
+        if (flag>0) {
+            return "SelectGoodsShow";
+        }
+        else {
+            return "NotFindGoods";
+        }
     }
 
     @RequestMapping("SelectByKey")
@@ -39,6 +46,13 @@ public class GoodsTypeSelectController {
         System.out.println(key);
 
         model.addAttribute("GoodsSelectByKey",getGoodsTypeHomeService.getGoodsByKey(key));
-        return "SelectGoodsShow";
+
+
+        int flag = getGoodsTypeHomeService.getGoodsByKey(key).size();
+        if (flag <= 0){
+            return "NotFindGoods";
+        }else {
+            return "SelectGoodsShow";
+        }
     }
 }

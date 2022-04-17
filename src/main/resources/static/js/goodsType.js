@@ -1,4 +1,4 @@
-$(function () {
+    $(function () {
     // $(".test-btn").click(function () {
     //     alert("进入");
     //     $.ajax({

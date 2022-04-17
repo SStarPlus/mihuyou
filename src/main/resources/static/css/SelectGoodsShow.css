@@ -1,0 +1,25 @@
+body{
+    background-color: WhiteSmoke;
+}
+
+.s-img{
+    width: 200px;
+    height: 200px;
+    /*border: 2px solid black;*/
+}
+.showUl{
+    position: absolute;left: 100px;
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;}
+.LiTotal{
+    list-style: none;
+    box-sizing: border-box;
+    background-color: white;
+    flex: 0 0 20%;
+    height: 350px;
+    border: 1px solid black;
+    margin: 5px 5px;
+}

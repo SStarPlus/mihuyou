@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <header th:replace="insertPart/HomeHeadBar::HomeHeader-fragment"></header>
-<style>
-    .TypeList li{list-style-type: none}
-    .TypeList{ width: 60%;
-        height: 100px;
-        display: flex;
-        flex-flow: row wrap;
-        align-content: flex-start;}
-    .TypeListLi{
-        box-sizing: border-box;
-        background-color: white;
-        flex: 0 0 33%;
-        height: 25px;
-        /*border: 1px solid red;*/
-    }
-</style>
 <body>
-<div class="wrapper">
-<!--        引入头部导航栏-->
-    <div th:replace="insertPart/HomeHeadBar::hoemheader-nav"></div>
-<!--        引入边部导航栏-->
-    <div th:replace="insertPart/HomeSideBar::sidebar-fragment(${path})"></div>
-    <div class="content-wrapper">
-        <div class="content-head">
-            <div class="content-fluid"></div>
+    <div class="wrapper">
+        <!--    引入头部导航栏-->
+        <div th:replace="insertPart/HomeHeadBar::hoemheader-nav"></div>
+        <!--    引入边部导航栏-->
+        <div th:replace="insertPart/HomeSideBar::sidebar-fragment(${path})"></div>
+        <div class="content-wrapper">
+            <div class="content-head">
+                <div class="content-fluid">
+                    <div>
+                        <img src="../static/pictures/home-s-1.jpg" class="home-s-l">
+                    </div>
+                    <div>
+                        <img src="../static/pictures/home-s-2.jpg" class="home-s-l">
+                    </div>
+                    <div>
+                        <img src="../static/pictures/home-s-3.jpg" class="home-s-l">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-center">
+            <div id="img">
+                <img class="centerImg1" src="../static/pictures/home1.jpg" id="imgs">
+                <div class="lleft">
+<!--                    <img class="content-right-img2" src="../static/pictures/home2.jpg" alt="无法 Q    -->
+                </div>
+                <div class="ccenter">
+<!--                    <i class="tran-point" id="img-point-1"></i>-->
+                </div>
+                <div class="rright">
+<!--                    <img class="content-right-img3" src="../static/pictures/home3.jpg" alt="无法显示">-->
+                </div>
+            </div>
+        </div>
+        <div class="content-right">
+            <div>
+                <img src="../static/pictures/home-s-4.jpg" class="home-s-r">
+            </div>
+            <div>
+                <img src="../static/pictures/home-s-5.jpg" class="home-s-r">
+            </div>
+            <div>
+                <img src="../static/pictures/home-s-6.jpg" class="home-s-r">
+            </div>
         </div>
     </div>
-    <div class="content">
-        <div class="content-fluid">
 
-        </div>
-    </div>
-</div>
+<!--css-->
+<link rel="stylesheet" th:href="@{../static/css/Home.css}">
+<!--js-->
+<script th:src="@{../static/js/jQuery.js}"></script>
+<script th:src="@{../static/js/Home.js}"></script>
 </body>
 </html>
 
