@@ -20,7 +20,6 @@ public class GoodsAddController {
 //添加商品
     @RequestMapping("GoodsAdd")
     public String GoodsAdd(HttpServletRequest request , Model model, Goods goods){
-        System.out.println("1");
         String GoodsId = request.getParameter("GoodsId");
         String GoodsName = request.getParameter("GoodsName");
         String GoodsType = request.getParameter("GoodsType");
@@ -33,9 +32,9 @@ public class GoodsAddController {
         int flag = 0;
         flag = goodsAddService.addGoods(goods , GoodsId,GoodsName,GoodsType,GoodsInformation,GoodsPrice,GoodsStock,request);
         if (flag>0){
-            return "addGoods";
+            return "redirect:AddGoods";
         }else
-            return "addGoods";
+            return "redirect:AddGoods";
     }
 
 }

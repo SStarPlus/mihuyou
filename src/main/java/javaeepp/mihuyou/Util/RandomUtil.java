@@ -6,7 +6,7 @@ public class RandomUtil {
     public String getRandom(){
         String num = "";
         Random r = new Random();
-        num = r.nextDouble()*1000%1000 + "";
+        num = r.nextInt(999) + 1000 + "";
 
         return num;
     }

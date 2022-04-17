@@ -1,70 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>SelectGoods</title>
-    <style>
-        body{
-            background-color: WhiteSmoke;
-        }
-/*<!--        顶部导航条-->*/
-        .inputSel{
-            position: absolute; left: 350px;
-            text-align:center;vertical-align:middle;
-            font-size: 0;
-        }
-        .inputSty{
-            height: 30px;
-            width: 300px;
-            border: none;
-        }
-        .btnSel{
-            height: 30px;
-            width: 50px;
-            border: none;
-        }
-        /**/
-
-
-
-        .s-img{
-            width: 200px;
-            height: 200px;
-            /*border: 2px solid black;*/
-        }
-        .showUl{
-            position: absolute;left: 100px;
-            width: 90%;
-            height: auto;
-            display: flex;
-            flex-flow: row wrap;
-            align-content: flex-start;}
-        .LiTotal{
-            list-style: none;
-            box-sizing: border-box;
-            background-color: white;
-            flex: 0 0 20%;
-            height: 350px;
-            border: 1px solid black;
-            margin: 5px 5px;
-        }
-         .inputSel{
-             position: absolute; left: 600px;
-             text-align:center;vertical-align:middle;
-         }
-        .inputSty{
-            height: 30px;
-            width: 300px;
-        }
-        .btnSel{
-            height: 30px;
-            width: 50px;
-        }
-
-    </style>
-</head>
+<header th:replace="insertPart/HomeHeadBar::HomeHeader-fragment"></header>
 <body>
     <div class="wrapper">
+
         <!--    引入头部导航栏-->
         <div th:replace="insertPart/HomeHeadBar::hoemheader-nav"></div>
         <div class="content">
@@ -147,6 +86,9 @@
 <!--    </div>-->
 
 
+<!--css-->
+<link rel="stylesheet" th:href="@{../static/css/SelectGoodsShow.css}">
+<!--js-->
 <script th:src="@{../static/js/jQuery.js}"></script>
 <script th:src="@{../static/js/star.js}"></script>
 </body>
