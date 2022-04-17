@@ -67,13 +67,17 @@ public class LoginController {
         }
         return "login";
     }
+    //调试用登录
+    @RequestMapping("DebugLogin")
+    public String debugLogin(HttpSession session, Model model){
+        session.setAttribute("userNum", "10001");
+        return "redirect:home";
+    }
 
     @RequestMapping("user_registration")
     public String userRegistration(){
         return "enroll";
     }
-
-
 
     //管理员登录
     @RequestMapping("managerLoginJudge")

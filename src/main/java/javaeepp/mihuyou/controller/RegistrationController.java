@@ -1,5 +1,6 @@
 package javaeepp.mihuyou.controller;
 
+import javaeepp.mihuyou.Util.DateUtil;
 import javaeepp.mihuyou.service.MailService;
 import javaeepp.mihuyou.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
