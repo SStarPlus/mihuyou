@@ -29,4 +29,9 @@
         FROM star
         WHERE StarUId = '${UId}'
     </select>
+<!--未启用    -->
+<!--    <select id="GoodsStarFromDetail" resultType="java.lang.Integer">-->
+<!--        select * from star-->
+<!--        where StarUId =' ${UId}' and StarGoodsId = ${GoodsId}-->
+<!--    </select>-->
 </mapper>

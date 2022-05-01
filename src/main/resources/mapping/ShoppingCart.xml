@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="javaeepp.mihuyou.mapper.ShoppingCartMapper">
+    <select id="CheckGoodsIfExist" resultType="java.lang.Integer">
+        select count(*) from ShoppingCart
+        where GoodsId = ${GoodsId} and UId = '${UId}'
+    </select>
+    <insert id="insertGoods">
+        insert into ShoppingCart
+        values(${GoodsId},${Num},'${UId}')
+    </insert>
+    <update id="updateGoodsNum">
+        update ShoppingCart
+        set GoodsNum = GoodsNum + ${Num}
+        where UId = '${UId}' and GoodsId = ${GoodsId}
+    </update>
+
+    <select id="getMyShoppingCart" resultType="javaeepp.mihuyou.entity.cartGoodsInfo">
+        SELECT g.GoodsId,g.GoodsInformation,g.GoodsName,g.GoodsPrice,gp.GoodsPictureString,sc.GoodsNum,SC.UId,sc.GoodsNum*g.GoodsPrice AS total
+        FROM goods g INNER JOIN goodspicture gp ON g.GoodsId = gp.GoodsPictureString
+        INNER JOIN shoppingcart sc ON sc.GoodsId = g.GoodsId
+        where sc.UId = 'admin'
+    </select>
+
+    <delete id="simRemoveFromCart">
+        delete from ShoppingCart
+        where UId = '${UId}'
+        and GoodsId = ${GoodsId}
+    </delete>
+
+    <update id="cartGoodsNumDel">
+        update ShoppingCart
+        set GoodsNum = GoodsNum - 1
+        where GoodsId = ${GoodsId}
+        and UId = '${UId}'
+    </update>
+
+    <update id="cartGoodsNumPlus">
+        update ShoppingCart
+        set GoodsNum = GoodsNum + 1
+        where GoodsId = ${GoodsId}
+        and UId = '${UId}'
+    </update>
+
+    <delete id="delCartAGoods">
+        DELETE FROM ShoppingCart
+        where UId = '${UId}' and GoodsId = ${GoodsId}
+    </delete>
+</mapper>

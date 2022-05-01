@@ -22,4 +22,7 @@ public interface GoodsStarMapper {
     List<Star> GetStarGoodsInfoByUID(@Param("UId") String UID);
 //    通过商品id获取商品信息
     public List<Goods> GetGoodsByGoodsId(@Param("GoodsIdList") int[] GoodsIdList);
+//收藏  未启用
+//    int GoodsStarFromDetail(String GoodsId,String UId);
+
 }

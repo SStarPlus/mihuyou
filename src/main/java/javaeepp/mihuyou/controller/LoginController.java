@@ -73,6 +73,11 @@ public class LoginController {
         session.setAttribute("userNum", "10001");
         return "redirect:home";
     }
+    @RequestMapping("DebugLogin2")
+    public String debugLogin2(HttpSession session, Model model){
+        session.setAttribute("userNum", "admin");
+        return "redirect:home";
+    }
 
     @RequestMapping("user_registration")
     public String userRegistration(){

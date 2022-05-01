@@ -1,0 +1,30 @@
+.GoodsDetail-Picture{
+    width: 400px;
+    height: 500px;
+    border: solid black 1px;
+    position: absolute;
+    left: 100px;
+    top: 50px;
+}
+.GoodsDetail-Picture-main{
+    width: 400px;
+    height: 400px;
+}
+.detail-main-info{
+    position: absolute;
+    left: 700px;
+    top: 50px;
+}
+.detail-Price{
+    background-color: #F5F5F5;
+}
+.ATCart{
+    width: 120px;
+    height: 40px;
+    background-color: #DF3033;
+}
+.ATCart-text{
+    color: #ffffff;
+    font-size: x-large;
+    text-align: center;
+}

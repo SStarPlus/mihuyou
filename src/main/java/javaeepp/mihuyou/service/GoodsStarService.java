@@ -71,4 +71,9 @@ public class GoodsStarService {
 
         return goodsStarMapper.GetGoodsByGoodsId(goodsIdList);
     }
+    //未启用
+//    GoodsStarFromDeatil
+//    public int GoodsStarFromDetail(String GoodsId,String UId){
+//        return goodsStarMapper.GoodsStarFromDetail(GoodsId,UId);
+//    }
 }

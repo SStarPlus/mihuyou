@@ -1,8 +1,6 @@
 package javaeepp.mihuyou.controller;
 
-import javaeepp.mihuyou.service.AddGoodsTypeService;
-import javaeepp.mihuyou.service.RemoveGoodsTypeService;
-import javaeepp.mihuyou.service.removeGoodsService;
+import javaeepp.mihuyou.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import sun.security.jgss.GSSCaller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class ManageMenuController {
@@ -17,6 +16,12 @@ public class ManageMenuController {
     RemoveGoodsTypeService removeGoodsTypeService;
     @Autowired
     removeGoodsService removeGoodsService;
+    @Autowired
+    GoodsDetailShowService goodsDetailShowService;
+    @Autowired
+    ShoppingCartService shoppingCartService;
+    @Autowired
+    GoodsStarService goodsStarService;
 
     @RequestMapping("manageMenu")
     public String toManageMenu(Model model){
@@ -62,7 +67,6 @@ public class ManageMenuController {
         String GoodsPullOff = request.getParameter("GoodsPullOff");
         String GoodsPictureString = request.getParameter("GoodsPictureString");
         System.out.println(GoodsPictureString);
-//        System.out.println(GoodsId);
 
         model.addAttribute("GoodsId",GoodsId);
         model.addAttribute("GoodsName",GoodsName);
@@ -79,4 +83,34 @@ public class ManageMenuController {
 //    public String ShowHome(){
 //        return "redirect:getGoodsTypesHome";
 //    }
+    
+    @RequestMapping("ShowGoodsDetail")
+    public String ShowGoodsDetail(HttpSession session, HttpServletRequest request, Model model){
+        String GoodsId = request.getParameter("GoodsId");
+//        String UId = session.getAttribute("userNum").toString();
+//        int flag = 0;
+//        String HON;
+//        flag = goodsStarService.GoodsStarFromDetail(GoodsId,UId);
+//        if (flag>0){
+//            HON = ""
+//        }
+//        else {
+//
+//        }
+        //获取详情界面需要显示的值
+        model.addAttribute("Goods" , goodsDetailShowService.getGoodsDetail(GoodsId));
+        System.out.println(GoodsId);
+        return "GoodsDetail";
+    }
+    //购物车内物品显示
+    //在HomeHeadBar进入
+    @RequestMapping("toMyShoppingCart")
+    public String showMyShoppingCart(HttpSession session,HttpServletRequest request , Model model){
+        String UId = session.getAttribute("userNum").toString();
+        System.out.println(UId);
+
+        model.addAttribute("cartGoods",shoppingCartService.getMyShoppingCart(UId));
+        return "myShoppingCart";
+    }
+
 }

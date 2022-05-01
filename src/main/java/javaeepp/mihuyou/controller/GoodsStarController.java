@@ -44,4 +44,5 @@ public class GoodsStarController {
     public ResultBean cancelStarGoods(HttpServletRequest request, HttpSession session){
         return goodsStarService.cancelStarGoods(request, session);
     }
+
 }

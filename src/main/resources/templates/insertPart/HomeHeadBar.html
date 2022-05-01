@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="HomeHeader-fragment">
     <meta charset="UTF-8">
-    <title>啦啦啦</title>
+    <title>首页</title>
     <link rel="stylesheet" th:href="@{../../static/plugins/jQuery-ui/jquery-ui.css}">
     <link rel="stylesheet" th:href="@{../../static/css/HomeHeadBar.css}">
     <style>
@@ -36,6 +36,8 @@
     </ul>
     <ul style="float: right; margin-left: auto">
         <div>
+
+            <a th:href="@{/toMyShoppingCart}">我的购物车</a>
             <a th:href="@{/toStarPage}" class="head-a">我的收藏</a>
         </div>
     </ul>

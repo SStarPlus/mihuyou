@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="javaeepp.mihuyou.mapper.removeGoodsMapper">
-   <select id="getGoodsDetail" resultType="javaeepp.mihuyou.entity.Goods">
---        SELECT * FROM goods
---        where GoodsPullOff = '1'
-    SELECT * FROM goods
-	    INNER JOIN goodspicture gp ON gp.GoodsId = goods.GoodsId
-        where GoodsPullOff = '1'
-   </select>
-
-    <select id="getAGoodPicture" resultType="javaeepp.mihuyou.entity.Goods">
-        SELECT * FROM goodspicture
-       where GoodsId = '${GoodsId}'
+<mapper namespace="javaeepp.mihuyou.mapper.GoodsDetailShowMapper">
+    <select id="getGoodsDetail" resultType="javaeepp.mihuyou.entity.Goods">
+        SELECT g.GoodsId,g.GoodsName,g.GoodsType,g.GoodsInformation,g.GoodsPrice,g.GoodsStock,gp.GoodsPictureString
+        FROM goods g
+        INNER JOIN goodspicture gp ON g.GoodsId = gp.GoodsId
+        where g.GoodsId = ${GoodsId}
     </select>
 </mapper>

@@ -28,6 +28,8 @@
                     <a target="blank" th:text="${Goods.GoodsInformation}"></a>
                 </div>
             </div>
+
+
             <div class="showFunc">
                 <div class="goodStar">
                     <a class="star" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击收藏"
@@ -51,10 +53,20 @@
                             <i th:text="${Goods.GoodsPrice}"></i>
                         </strong>
                     </div>
-                    <div class="s-information">
-                        <a target="blank" th:text="${Goods.GoodsInformation}"></a>
+                        <div class="s-information">
+                                <a target="blank" th:href="@{/ShowGoodsDetail(GoodsId = ${Goods.GoodsId})}" th:text="${Goods.GoodsInformation}"></a>
+                        </div>
+                </div>
+                <div class="showFunc">
+                    <div class="goodStar">
+                        <a class="star" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击收藏"
+                           style="display: block">收藏</a>
+                        <a class="cancel-star" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击取消收藏"
+                           style="display: none">取消收藏</a>
                     </div>
                 </div>
+
+
             </li>
 <!--        <li class="LiTotal" th:each="Goods,itemStat:${GoodsSelectByKey}" th:if="">-->
     </ul>
