@@ -1,7 +1,7 @@
 package javaeepp.mihuyou.controller;
 
 import javaeepp.mihuyou.entity.Goods;
-import javaeepp.mihuyou.entity.ResultBean;
+import javaeepp.mihuyou.exception.ResultBean;
 import javaeepp.mihuyou.service.GoodsStarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
