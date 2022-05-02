@@ -2,8 +2,7 @@ package javaeepp.mihuyou.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import javaeepp.mihuyou.controller.ShoppingCartController;
-import javaeepp.mihuyou.entity.ResultBean;
+import javaeepp.mihuyou.exception.ResultBean;
 import javaeepp.mihuyou.entity.cartGoodsInfo;
 import javaeepp.mihuyou.mapper.ShoppingCartMapper;
 import org.springframework.beans.factory.annotation.Autowired;

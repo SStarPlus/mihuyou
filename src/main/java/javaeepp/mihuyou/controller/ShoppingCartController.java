@@ -1,8 +1,7 @@
 package javaeepp.mihuyou.controller;
 
-import javaeepp.mihuyou.entity.ResultBean;
+import javaeepp.mihuyou.exception.ResultBean;
 import javaeepp.mihuyou.service.ShoppingCartService;
-import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.print.DocFlavor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
