@@ -22,6 +22,7 @@ public class ShoppingCartController {
     @ResponseBody
     public String AddToShoppingCart(HttpSession session , HttpServletRequest request, Model model , RedirectAttributes redirectAttributes){
         String UID = session.getAttribute("userNum").toString();
+
         System.out.println("UID:"+UID);
         String GoodsId = request.getParameter("GoodsId");
         System.out.println("GoodsId"+GoodsId);
