@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="javaeepp.mihuyou.mapper.OderCommitMapper">
+    <insert id="createOrderFirst">
+        INSERT INTO javaeepluswork.order (GoodsId, GoodsNum, UId, OrderNumber, TotalPrice, CreateDate)
+        SELECT sc.GoodsId,sc.GoodsNum,sc.UId,ordernum.OrderNum,sc.GoodsNum*g.GoodsPrice ,'${Time}'
+        from goods g
+        INNER JOIN shoppingcart sc ON g.GoodsId = sc.GoodsId
+          INNER JOIN ordernum
+        where sc.GoodsId = ${GoodsId} and sc.UId = '${UId}'
+    </insert>
+
+    <update id="addOrderNum">
+        UPDATE ordernum
+        set ordernum = ordernum+1
+    </update>
+
+    <update id="delGoodsStock">
+        UPDATE goods
+        set goods.GoodsStock = goods.GoodsStock - (SELECT GoodsNum from shoppingcart sc where sc.UId = '${UId}' and sc.GoodsId = ${GoodsId})
+        where goods.GoodsId = (
+        SELECT sc.GoodsId from shoppingcart sc where sc.UId = '${UId}' and sc.GoodsId = ${GoodsId})
+    </update>
+
+    <update id="changeActFlag">
+        UPDATE shoppingcart
+        set actFlag = 2
+        where UId = '${UId}' and GoodsId = ${GoodsId}
+    </update>
+
+    <update id="changeActFlagFin">
+        UPDATE shoppingcart
+        set actFlag = 0
+        where UId = '${UId}' and GoodsId = ${GoodsId} and actFlag = 2
+    </update>
+    <select id="getMyOrder" resultType="javaeepp.mihuyou.entity.myOrderInfo">
+        SELECT g.GoodsId,g.GoodsInformation,g.GoodsName,g.GoodsPrice,gp.GoodsPictureString,o.GoodsNum,o.UId,o.GoodsNum*g.GoodsPrice AS total
+        FROM goods g INNER JOIN goodspicture gp ON g.GoodsId = gp.GoodsPictureString
+        INNER JOIN javaeepluswork.order o ON o.GoodsId = g.GoodsId
+        where o.UId = '${UId}'
+    </select>
+    <select id="showSecondOrder" resultType="javaeepp.mihuyou.entity.cartGoodsInfo">
+        SELECT g.GoodsId,g.GoodsInformation,g.GoodsName,g.GoodsPrice,gp.GoodsPictureString,sc.GoodsNum,SC.UId,sc.GoodsNum*g.GoodsPrice AS total
+        FROM goods g INNER JOIN goodspicture gp ON g.GoodsId = gp.GoodsPictureString
+        INNER JOIN shoppingcart sc ON sc.GoodsId = g.GoodsId
+        where sc.UId = '${UId}'  and actFlag = 2
+    </select>
+</mapper>

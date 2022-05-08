@@ -1,10 +1,8 @@
 package javaeepp.mihuyou.controller;
 
-import javaeepp.mihuyou.exception.ResultBean;
-import javaeepp.mihuyou.exception.SDException;
+import javaeepp.mihuyou.entity.ResultBean;
 import javaeepp.mihuyou.service.AddGoodsTypeService;
 import javaeepp.mihuyou.service.RemoveGoodsTypeService;
-import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 
 @Controller
 public class GoodsTypeController {
@@ -65,11 +62,5 @@ public class GoodsTypeController {
         removeGoodsTypeService.EditGoodsType(GoodsTypeId, GoodsTypeName);
 
         return ResultBean.success();
-    }
-
-    @RequestMapping("/testEx")
-    public String testEx() throws IOException, NotFoundException {
-        throw new NotFoundException("123");
-//        return "addGoodsType";
     }
 }

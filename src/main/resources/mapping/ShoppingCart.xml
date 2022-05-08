@@ -7,7 +7,7 @@
     </select>
     <insert id="insertGoods">
         insert into ShoppingCart
-        values(${GoodsId},${Num},'${UId}')
+        values(${GoodsId},${Num},'${UId}',1)
     </insert>
     <update id="updateGoodsNum">
         update ShoppingCart
@@ -19,7 +19,7 @@
         SELECT g.GoodsId,g.GoodsInformation,g.GoodsName,g.GoodsPrice,gp.GoodsPictureString,sc.GoodsNum,SC.UId,sc.GoodsNum*g.GoodsPrice AS total
         FROM goods g INNER JOIN goodspicture gp ON g.GoodsId = gp.GoodsPictureString
         INNER JOIN shoppingcart sc ON sc.GoodsId = g.GoodsId
-        where sc.UId = 'admin'
+        where sc.UId = '${UId}'  and actFlag = 1
     </select>
 
     <delete id="simRemoveFromCart">

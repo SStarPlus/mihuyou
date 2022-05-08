@@ -1,7 +1,8 @@
 package javaeepp.mihuyou.controller;
 
-import javaeepp.mihuyou.exception.ResultBean;
+import javaeepp.mihuyou.entity.ResultBean;
 import javaeepp.mihuyou.service.ShoppingCartService;
+import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.print.DocFlavor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -22,7 +24,6 @@ public class ShoppingCartController {
     @ResponseBody
     public String AddToShoppingCart(HttpSession session , HttpServletRequest request, Model model , RedirectAttributes redirectAttributes){
         String UID = session.getAttribute("userNum").toString();
-
         System.out.println("UID:"+UID);
         String GoodsId = request.getParameter("GoodsId");
         System.out.println("GoodsId"+GoodsId);

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:itemStat="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+
+<!--    <script th:src="@{../static/js/jQuery.js}"></script>-->
+<!--    <script th:src="@{../static/js/shoppingCart.js}"></script>-->
+    <link rel="stylesheet" th:href="@{../static/css/cartGoods.css}">
+</head>
+<body>
+<nav class="public-header">
+    <!--        <a th:href="">网站首页</a>-->
+    <!--        <a th:href="">我的收藏</a>-->
+    <span>
+            <a></a>
+        <!--            <a>注册</a>-->
+        </span>
+</nav>
+
+<div class="public-shop-cart">
+    <div class="content">
+        <span>我的订单</span>
+<!--        <a class="btn-del-cart" href="javascript:;">批量删除</a>-->
+        <div class="cart-title">
+            <span></span>
+            <span>商品</span>
+            <span>单价</span>
+            <span>数量</span>
+            <span>小计</span>
+            <span>操作</span>
+        </div>
+        <div class="cart-detail" th:each="Goods , itemStat:${OrderGoods}">
+            <!--图片                -->
+            <input type="checkbox" value="${z-item-checked}"  th:data-gid="${Goods.getGoodsId()}">
+            <div class="cart-title" th:data-gid="${Goods.getGoodsId()}">
+                <img th:src="@{../../static/pictures/{id}(id=${Goods.getGoodsPictureString()})}" >
+                <!--                    <img src="src../static/images/cart1.png" alt="">-->
+                <div>
+                    <a th:text="${Goods.getGoodsName()}"></a>
+                    <span><i class="iconfont icon-icon_shezhi"></i><a href="">选服务</a></span>
+                </div>
+                <span th:text="${Goods.getGoodsInformation()}"></span>
+            </div>
+            <div class="cart-price" th:text="${Goods.getGoodsPrice()}"></div>
+            <div class="cart-number">
+                <span th:text="${Goods.getGoodsNum()}"></span>
+            </div>
+            <div class="cart-subtotal" th:text="${Goods.getTotal()}"></div>
+            <div class="cart-oprate"><a>取消订单</a></div>
+        </div>
+<!--        <div class="cart-btn">-->
+<!--            <span>总价：</span>-->
+<!--            <span></span><button class="btn-settleAccount">去结算</button>-->
+<!--        </div>-->
+    </div>
+</div>
+
+</body>
+</html>
