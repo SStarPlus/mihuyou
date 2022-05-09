@@ -1,6 +1,7 @@
 package javaeepp.mihuyou.controller;
 
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import javaeepp.mihuyou.entity.Goods;
 import javaeepp.mihuyou.service.GoodsTypeHomeService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class GoodsTypeSelectController {
@@ -18,11 +20,15 @@ public class GoodsTypeSelectController {
 //   @RequestMapping("getGoodsTypesHome")
     @RequestMapping("/home")
     public String getGoodsTypesHome(Model model){
+        List<Goods> list = getGoodsTypeHomeService.getGoodsByType("2001");
+        System.out.println("list.size="+list.size());
 
         model.addAttribute("GoodsTypesHome", getGoodsTypeHomeService.getType());
+
+        model.addAttribute("GoodsSelectTypeId" , getGoodsTypeHomeService.getGoodsByType("2001"));
 //        return "/insertPart/HomeSideBar";
 
-        return "Home";
+        return "Home2";
         //gaizheng
     }
 
