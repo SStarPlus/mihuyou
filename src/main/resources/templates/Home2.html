@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:replace="insertPart/HomeHeadBar::HomeHeader-fragment"></header>
+<body>
+<div class="wrapper">
+    <!--    引入头部导航栏-->
+    <div th:replace="insertPart/HomeHeadBar::hoemheader-nav"></div>
+    <!--    引入边部导航栏-->
+    <div th:replace="insertPart/HomeSideBar::sidebar-fragment(${path})"></div>
+    <div class="content-wrapper">
+        <div class="content-head">
+            <div class="content-fluid">
+
+                <div class="content-center">
+                    <div id="img">
+                        <img class="centerImg1" src="../static/pictures/home1.jpg" id="imgs">
+                        <div class="lleft">
+                            <!--                    <img class="content-right-img2" src="../static/pictures/home2.jpg" alt="无法 Q    -->
+                        </div>
+                        <div class="ccenter">
+                            <!--                    <i class="tran-point" id="img-point-1"></i>-->
+                        </div>
+                        <div class="rright">
+                            <!--                    <img class="content-right-img3" src="../static/pictures/home3.jpg" alt="无法显示">-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-recommend">
+                    <div>
+                        <img src="../static/pictures/home-s-1.jpg" class="home-s-l">
+                    </div>
+                    <div>
+                        <img src="../static/pictures/home-s-2.jpg" class="home-s-l">
+                    </div>
+                    <div>
+                        <img src="../static/pictures/home-s-3.jpg" class="home-s-l">
+                    </div>
+                </div>
+
+                <div class="content-hot-rank">
+                    <div class="rank-title">畅销榜</div>
+                    <a class="rank-item-a" target="blank" th:href="@{/ShowGoodsDetail(GoodsId = ${GoodsSelectTypeId[0].getGoodsId()})}">
+                        <div th:if="${GoodsSelectTypeId.size()}>=1" class="hot-rank-item" id="rank-one"
+                             th:data-gid="${GoodsSelectTypeId[0].getGoodsId()}" th:title="${GoodsSelectTypeId[0].getGoodsInformation()}">
+                            <div class="good-detail">
+                                <div class="s-img" style="float: left">
+                                    <img th:src="@{../static/pictures/{id}(id=${GoodsSelectTypeId[0].getGoodsPictureString()})}"
+                                         width="100px" height="100px">
+                                </div>
+                                <div class="s-name">
+                                    <span target="blank" th:text="${GoodsSelectTypeId[0].getGoodsName()}"></span>
+                                </div>
+                                <div class="s-information">
+                                    <span target="blank" th:text="${GoodsSelectTypeId[0].getGoodsInformation()}"></span>
+                                </div>
+                                <div class="s-price">
+                                    <strong>
+                                        <em>￥</em>
+                                        <span th:text="${GoodsSelectTypeId[0].getGoodsPrice()}"></span>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div th:if="${GoodsSelectTypeId.size()}<1" class="hot-rank-item-null" id="rank-one">
+
+                    </div>
+
+                    <a class="rank-item-a" target="blank" th:href="@{/ShowGoodsDetail(GoodsId = ${GoodsSelectTypeId[1].getGoodsId()})}">
+                        <div th:if="${GoodsSelectTypeId.size()}>=2" class="hot-rank-item" id="rank-two"
+                             th:data-gid="${GoodsSelectTypeId[1].getGoodsId()}" th:title="${GoodsSelectTypeId[1].getGoodsInformation()}">
+                            <div class="good-detail">
+                                <div class="s-img" style="float: left">
+                                    <img th:src="@{../static/pictures/{id}(id=${GoodsSelectTypeId[1].getGoodsPictureString()})}"
+                                         width="100px" height="100px">
+                                </div>
+                                <div class="s-name">
+                                    <span target="blank" th:text="${GoodsSelectTypeId[1].getGoodsName()}"></span>
+                                </div>
+                                <div class="s-information">
+                                    <span target="blank" th:text="${GoodsSelectTypeId[1].getGoodsInformation()}"></span>
+                                </div>
+                                <div class="s-price">
+                                    <strong>
+                                        <em>￥</em>
+                                        <span th:text="${GoodsSelectTypeId[1].getGoodsPrice()}"></span>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div th:if="${GoodsSelectTypeId.size()}<2" class="hot-rank-item-null" id="rank-two">
+
+                        </div>
+                    </a>
+
+                    <a class="rank-item-a" target="blank" th:href="@{/ShowGoodsDetail(GoodsId = ${GoodsSelectTypeId[2].getGoodsId()})}">
+                        <div th:if="${GoodsSelectTypeId.size()}>=3" class="hot-rank-item" id="rank-third"
+                             th:data-gid="${GoodsSelectTypeId[2].getGoodsId()}" th:title="${GoodsSelectTypeId[2].getGoodsInformation()}">
+                            <div class="good-detail">
+                                <div class="s-img" style="float: left">
+                                    <img th:src="@{../static/pictures/{id}(id=${GoodsSelectTypeId[2].getGoodsPictureString()})}"
+                                         width="100px" height="100px">
+                                </div>
+                                <div class="s-name">
+                                    <span target="blank" th:text="${GoodsSelectTypeId[2].getGoodsName()}"></span>
+                                </div>
+                                <div class="s-information">
+                                    <span target="blank" th:text="${GoodsSelectTypeId[2].getGoodsInformation()}"></span>
+                                </div>
+                                <div class="s-price">
+                                    <strong>
+                                        <em>￥</em>
+                                        <span th:text="${GoodsSelectTypeId[2].getGoodsPrice()}"></span>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div th:if="${GoodsSelectTypeId.size()}<3" class="hot-rank-item-null" id="rank-third">
+
+                    </div>
+
+                    <a class="rank-item-a" target="blank" th:href="@{/ShowGoodsDetail(GoodsId = ${GoodsSelectTypeId[3].getGoodsId()})}">
+                        <div th:if="${GoodsSelectTypeId.size()}>=4" class="hot-rank-item" id="rank-forth"
+                             th:data-gid="${GoodsSelectTypeId[3].getGoodsId()}" th:title="${GoodsSelectTypeId[3].getGoodsInformation()}">
+                            <div class="good-detail">
+                                <div class="s-img" style="float: left">
+                                    <img th:src="@{../static/pictures/{id}(id=${GoodsSelectTypeId[3].getGoodsPictureString()})}"
+                                         width="100px" height="100px">
+                                </div>
+                                <div class="s-name">
+                                    <span target="blank" th:text="${GoodsSelectTypeId[3].getGoodsName()}"></span>
+                                </div>
+                                <div class="s-information">
+                                    <span target="blank" th:text="${GoodsSelectTypeId[3].getGoodsInformation()}"></span>
+                                </div>
+                                <div class="s-price">
+                                    <strong>
+                                        <em>￥</em>
+                                        <span th:text="${GoodsSelectTypeId[3].getGoodsPrice()}"></span>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div th:if="${GoodsSelectTypeId.size()}<4" class="hot-rank-item-null" id="rank-forth">
+
+                    </div>
+
+                    <a class="rank-item-a" target="blank" th:href="@{/ShowGoodsDetail(GoodsId = ${GoodsSelectTypeId[4].getGoodsId()})}">
+                        <div th:if="${GoodsSelectTypeId.size()}>=5" class="hot-rank-item" id="rank-fifth"
+                             th:data-gid="${GoodsSelectTypeId[4].getGoodsId()}" th:title="${GoodsSelectTypeId[4].getGoodsInformation()}">
+                            <div class="good-detail">
+                                <div class="s-img">
+                                    <img th:src="@{../static/pictures/{id}(id=${GoodsSelectTypeId[4].getGoodsPictureString()})}"
+                                         width="100px" height="100px">
+                                </div>
+                                <div class="s-name">
+                                    <span target="blank" th:text="${GoodsSelectTypeId[4].getGoodsName()}"></span>
+                                </div>
+                                <div class="s-information">
+                                    <span target="blank" th:text="${GoodsSelectTypeId[4].getGoodsInformation()}"></span>
+                                </div>
+                                <div class="s-price">
+                                    <strong>
+                                        <em>￥</em>
+                                        <span th:text="${GoodsSelectTypeId[4].getGoodsPrice()}"></span>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div th:if="${GoodsSelectTypeId.size()}<5" class="hot-rank-item-null" id="rank-fifth">
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!--css-->
+<link rel="stylesheet" th:href="@{../static/css/Home2.css}">
+<!--js-->
+<script th:src="@{../static/js/jQuery.js}"></script>
+<script th:src="@{../static/js/Home2.js}"></script>
+</body>
+</html>
