@@ -27,5 +27,12 @@ td{
     line-height: 30px;
     padding: 0px 10px;
     min-width: 100px;
+}
 
+.picture-table{
+    width: 760px;
+    height: 500px;
+    border: 1px solid black;
+    margin-left: 200px;
+    margin-top: 5px;
 }
