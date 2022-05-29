@@ -180,8 +180,63 @@
             </div>
         </div>
     </div>
+    <div class="DV-showGoods">
+    <ul class="showUl-T">
+        <li class="LiTotal-T" th:each="Goods,itemStat:${GoodsRecommend}">
+            <div class="showTotal-T">
+                <div class="s-img-T" >
+                    <img th:src="@{../static/pictures/{id}(id=${Goods.getGoodsPictureString()})}" width="200px" height="200px">
+                </div>
+                <div class="s-price-T">
+                    <strong>
+                        <em>￥</em>
+                        <i th:text="${Goods.getGoodsPrice()}"></i>
+                    </strong>
+                </div>
+                <div class="s-information-Y">
+                    <a target="blank"  th:href="@{/ShowGoodsDetail(GoodsId = ${Goods.getGoodsId()})}" th:text="${Goods.getGoodsInformation()}"></a>
+                </div>
+            </div>
 
 
+            <div class="showFunc-T">
+                <div class="goodStar-T">
+                    <a class="star-T" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击收藏"
+                       style="display: block">收藏</a>
+                    <a class="cancel-star-T" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击取消收藏"
+                       style="display: none;text-decoration: underline;">取消收藏</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="LiTotal-T" th:each="Goods,itemStat:${GoodsRecommend5}">
+            <div class="showTotal-T">
+                <div class="s-img-T" >
+                    <img th:src="@{../static/pictures/{id}(id=${Goods.getGoodsPictureString()})}" width="200px" height="200px">
+                </div>
+                <div class="s-price-T">
+                    <strong>
+                        <em>￥</em>
+                        <i th:text="${Goods.getGoodsPrice()}"></i>
+                    </strong>
+                </div>
+                <div class="s-information-T">
+                    <a target="blank"  th:href="@{/ShowGoodsDetail(GoodsId = ${Goods.getGoodsId()})}" th:text="${Goods.getGoodsInformation()}"></a>
+                </div>
+            </div>
+
+
+            <div class="showFunc-T">
+                <div class="goodStar-T">
+                    <a class="star-T" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击收藏"
+                       style="display: block">收藏</a>
+                    <a class="cancel-star-T" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击取消收藏"
+                       style="display: none;text-decoration: underline;">取消收藏</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+    </div>
 </div>
 
 <!--css-->

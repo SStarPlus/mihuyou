@@ -44,7 +44,7 @@ public class LoginController {
 
             //
             int flag = 0;
-            flag = loginService.loginCheck(user,UserNum,UserPwd);
+            flag = loginService.loginCheck(UserNum,UserPwd);
             System.out.println(flag);
 
             if (flag>0 &&verifyCode.equals(session.getAttribute("VerifyCode"))) {
@@ -67,6 +67,50 @@ public class LoginController {
         }
         return "login";
     }
+
+
+//    @RequestMapping("loginJudge")
+//    public String loginJudge(HttpServletRequest request, Model model, User user, RedirectAttributes redirectAttributes, HttpSession session){
+//
+//
+//        if(request.getParameter("inputType").equals("注册")) {
+//
+//            model.addAttribute("NationInfoList",loginService.getNationInfo());
+//            return "registrationPage";
+//        }
+//        else if(request.getParameter("inputType").equals("登录")){
+//            String UserNum  =request.getParameter("userNum");
+//            String UserPwd = request.getParameter("userPwd");
+//            String verifyCode = request.getParameter("verifyCode");
+//
+//            System.out.println(session.getAttribute("VerifyCode"));
+//
+//
+//            //
+//            int flag = 0;
+//            flag = loginService.loginCheck(UserNum,UserPwd);
+//            System.out.println(flag);
+//
+//            if (flag>0 &&verifyCode.equals(session.getAttribute("VerifyCode"))) {
+//                redirectAttributes.addAttribute("userNum",UserNum);
+//                redirectAttributes.addAttribute("userPwd",UserPwd);
+//
+//                session.setAttribute("userNum", UserNum);
+//                return "redirect:home";
+//            }
+//            else {
+//                System.out.println("账号或密码错误");
+//                return "login";
+//            }
+//        }
+//        int fromWhere = 0;
+//        if(fromWhere == 1){
+//            return "userMenu";
+//        }else if(fromWhere == 2){
+//            return "managerMenu";
+//        }
+//        return "login";
+//    }
     //调试用登录
     @RequestMapping("DebugLogin")
     public String debugLogin(HttpSession session, Model model){

@@ -20,6 +20,18 @@ body{
     background-color: white;
     flex: 0 0 20%;
     height: 350px;
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,0);
+
     margin: 5px 5px;
 }
+.LiTotal:hover{
+    border: 1px solid rgba(255, 0 , 0, 1);
+}
+.s-information a{
+    text-decoration: none;
+}
+.s-information a:hover{
+    text-decoration: underline;
+}
+
+

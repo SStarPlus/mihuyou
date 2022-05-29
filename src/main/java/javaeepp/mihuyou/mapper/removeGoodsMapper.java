@@ -14,5 +14,4 @@ public interface removeGoodsMapper {
 
     int removeGoods(@Param("GoodsId")String GoodsId);
 
-    List<Goods> getAGoodPicture(@Param("GoodsId") String GoodsId);
 }

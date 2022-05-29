@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="javaeepp.mihuyou.mapper.UnpaidMapper">
+
+    <select id="showUnpaid" resultType="javaeepp.mihuyou.entity.myOrderInfo">
+        SELECT g.GoodsId,g.GoodsInformation,g.GoodsName,g.GoodsPrice,gp.GoodsPictureString,o.GoodsNum,o.UId,o.GoodsNum*g.GoodsPrice AS total
+        FROM goods g INNER JOIN goodspicture gp ON g.GoodsId = gp.GoodsPictureString
+        INNER JOIN javaeepluswork.order o ON o.GoodsId = g.GoodsId
+        where o.UId = '${GoodsId}' and o.actFlag = 2
+    </select>
+
+
+    <update id="cancelOrder">
+        UPDATE javaeepluswork.order
+        set order.actFlag = -2
+        where order.UId = '${UId}'
+        and order.GoodsId = (
+            SELECT GoodsId from shoppingcart sc
+            where sc.UId = '${UId}'
+            and sc.GoodsId = ${GoodsId}
+            and sc.actFlag = 2
+        )
+    </update>
+
+    <update id="cancelOrderFst">
+        update shoppingcart
+        set actflag = -2
+        where GoodsId = ${GoodsId}
+        and UId = '${UId}'
+        and actFlag = 2
+    </update>
+</mapper>

@@ -1,28 +1,7 @@
 body{
     background-color: WhiteSmoke;
 }
-.TypeList{ width: 60%;
-    height: 100px;
-    display: flex;
-    flex-flow: row wrap;
 
-    align-content: flex-start;
-
-
-}
-.TypeListLi{
-    list-style: none;
-    box-sizing: border-box;
-    background-color: white;
-    flex: 0 0 33%;
-    height: 25px;
-    background-color: white;
-    /*border: 1px solid red;*/
-}
-a{
-    text-decoration: none;
-    color: black;
-}
 .TypeListLi-a:hover{text-decoration: none;
     background-color: #DCDCDC;
 }
@@ -225,3 +204,95 @@ a{
     top: 100px;
     left: 200px;
 }
+.func-Menu{
+    height: 500px;
+    width: 190px;
+    border : 1px solid black;
+    border-radius: 15px;
+    position: absolute;
+    top: 110px;
+}
+.TypeListLi-a{
+    font-size: medium;
+     text-decoration: none;
+     /*margin: 1px;*/
+ }
+.TypeList{ width: 100%;
+    height: 500px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    padding: 0;
+    position: absolute;
+    left: 15px;
+}
+.TypeListLi{
+    list-style: none;
+    box-sizing: border-box;
+    /*background-color: #DCDCDC;*/
+    flex: 0 0 33%;
+    height: 25px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+/*.TypeList{ width: 60%;*/
+/*    height: 100px;*/
+/*    display: flex;*/
+/*    flex-flow: row wrap;*/
+
+/*    align-content: flex-start;*/
+/*}*/
+/*.TypeListLi{*/
+/*    list-style: none;*/
+/*    box-sizing: border-box;*/
+/*    background-color: white;*/
+/*    flex: 0 0 33%;*/
+/*    height: 25px;*/
+/*    background-color: white;*/
+/*    !*border: 1px solid red;*!*/
+/*}*/
+
+.s-img-T{
+    width: 200px;
+    height: 200px;
+    /*border: 2px solid black;*/
+}
+.showUl-T{
+    position: absolute;
+    left: 100px;
+    top: 650px;
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;}
+.LiTotal-T{
+    list-style: none;
+    box-sizing: border-box;
+    background-color: white;
+    flex: 0 0 20%;
+    height: 350px;
+    border: 1px solid rgba(0,0,0,0);
+
+    margin: 5px 5px;
+}
+.LiTotal-T:hover{
+    border: 1px solid rgba(255, 0 , 0, 1);
+}
+.s-information-T a{
+    text-decoration: none;
+}
+.s-information-T a:hover{
+    text-decoration: underline;
+}
+/*.DV-showGoods{*/
+/*    position: absolute;*/
+/*    left: 50px;*/
+/*    top: 2000px;*/
+/*}*/
+

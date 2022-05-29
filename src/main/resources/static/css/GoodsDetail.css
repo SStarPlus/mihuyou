@@ -28,3 +28,98 @@
     font-size: x-large;
     text-align: center;
 }
+.p-a2{
+    font-size: x-large;
+    color: red;
+}
+.p-a3{
+    font-size: larger;
+    color: red;
+}
+.p-a4{
+    font-size: small;
+    padding: 0 30px;
+    color: #1d93fc;
+}
+.detail-name{
+    width: 600px;
+    height: 50px;
+}
+.c-1{
+    color: gray;
+}
+.c-2{
+    border:1px solid red;
+}
+.c-3{
+    border:1px solid red;
+
+}
+.c-1-1{
+    color: gray;
+
+    font-size: larger;
+}
+.c-2-2{
+    margin-left: 20px;
+    color: red;
+    border: 1px solid red;
+    font-size: medium;
+}
+.c-3-3{
+    margin-left: 20px;
+    color: red;
+    border: 1px solid red;
+    font-size: medium;
+}
+.c-1-2{
+    color: gray;
+    font-size: small;
+}
+.c-3-4{
+    color: gray;
+    font-size: small;
+}
+.c-3-5{
+    color: #1d93fc;
+    font-size: smaller;
+    margin-left: 30px;
+}
+.d-d{
+    margin-top: 10px;
+}
+.Detail-d{
+    margin-top: 10px;
+}
+.d-1{
+    color: gray;
+    font-size: medium;
+}
+.d-2{
+    color: #1d93fc;
+    font-size: small;
+    padding-left: 20px;
+}
+.d-4-1{
+    color: gray;
+    font-size: medium;
+}
+.d-4-2{
+    color: black;
+    border: 1px solid gray;
+}
+.d-4-1-1{
+    padding-left: 10px;
+}
+.d-4-1-2{
+    padding-left: 30px;
+}
+.d-4-2-1{
+    color: gray;
+}
+.d-4-2-2{
+    padding-left: 30px;
+}
+.d-4-2-3{
+    padding-left: 10px;
+}

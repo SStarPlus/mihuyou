@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="javaeepp.mihuyou.mapper.GoodsRecommendMapper">
+<!--    <select id="getId" resultType="javaeepp.mihuyou.entity.UId">-->
+<!--         select UId from `order`-->
+<!--         where UId not like '${UId}'-->
+<!--          group by UId-->
+<!--&#45;&#45; javaeepp.mihuyou.entity.Users@685403ae-->
+
+<!--    </select>-->
+<!--    <select id="getGoodsIdA" resultType="javaeepp.mihuyou.entity.UIdWithGoods">-->
+<!--        select GoodsId from `order`-->
+<!--        where UId = '${UId}'-->
+<!--    </select>-->
+
+    <select id="getScore" resultType="javaeepp.mihuyou.entity.UserLike">
+          select p1,p2,p3,p4,p5,p6,p7,p8,p9,p0, p1+p2+p3+p4+p5+p6+p7+p8+p9+p0 as sum1
+	        from userlike
+        where UId = '${UId}' limit 1
+    </select>
+    
+    <select id="getGood1" resultType="javaeepp.mihuyou.entity.Goods">
+        select g.GoodsId,g.GoodsName,G.GoodsInformation,G.GoodsPrice,gp.GoodsPictureString from goods g
+        INNER JOIN goodspicture gp on gp.GoodsId = g.GoodsId
+        where goodsType in (2001) LIMIT ${a0}
+    </select>
+
+    <select id="getGood5" resultType="javaeepp.mihuyou.entity.Goods">
+        select g.GoodsId,g.GoodsName,G.GoodsInformation,G.GoodsPrice,gp.GoodsPictureString from goods g
+        INNER JOIN goodspicture gp on gp.GoodsId = g.GoodsId
+        where goodsType in (2005) LIMIT ${a4}
+    </select>
+</mapper>

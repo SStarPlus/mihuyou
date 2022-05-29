@@ -7,5 +7,9 @@
         set GoodsPullOff = 0
         where GoodsId = ${GoodsId}
     </update>
+
+    <select id="getGoodsDetail" resultType="javaeepp.mihuyou.entity.Goods">
+        select* from goods
+    </select>
 </mapper>
 

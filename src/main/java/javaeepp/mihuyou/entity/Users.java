@@ -1,5 +1,7 @@
 package javaeepp.mihuyou.entity;
 
+import java.util.Collection;
+
 public class Users {
     private String Uid;
     private String Password;

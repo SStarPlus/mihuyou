@@ -7,7 +7,7 @@ $(function () {
     //初始化图片轮转切换点的样式
     $(".img-point-"+index+"").css("background", "rgba(255, 255, 255, 1)");
 
-    var img_data=["../static/pictures/home1.jpg",'../static/pictures/home2.jpg','../static/pictures/home3.jpg']
+    var img_data=["../static/pictures/home1.jpg",'../static/pictures/home2.jpg','../static/pictures/home3.jpg','../static/pictures/p-1.jpg','../static/pictures/p-2.jpg','../static/pictures/p-3.jpg'];
     // 获得相应元素对象
     var rright=document.getElementsByClassName("rright")[0];
     var llef=document.getElementsByClassName("lleft")[0];
@@ -97,4 +97,5 @@ $(function () {
     //         },
     //     })
     // })
-})
+
+});

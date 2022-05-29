@@ -1,10 +1,9 @@
 $(function () {
     $(".btn-settleAccounts").click(function () {
-        alert("get");
         var GoodsId = new Array();
 
         $.each($('input:checked'), function (k, v) {
-            alert($(this).siblings(".cart-title").data("gid"));
+            // alert($(this).siblings(".cart-title").data("gid"));
             GoodsId.push($(this).siblings(".cart-title").data("gid"));
         });
         //
@@ -20,7 +19,7 @@ $(function () {
                 $(document.body).html(data);
             },
             error(data) {
-                alert("1");
+                // alert("");
             }
         });
 

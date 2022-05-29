@@ -18,5 +18,7 @@ $(function () {
         })
     })
 
-
-})
+    $(".d-4-2").click(function () {
+        this.style.border="1px solid red";
+    })
+});

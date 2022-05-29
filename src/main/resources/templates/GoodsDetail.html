@@ -48,23 +48,80 @@
     <div th:each="GoodsInfos , itemStat:${Goods}" class="detail-main-info">
         <div class="detail-main">
             <div class="detail-name">
-                <a th:text="${GoodsInfos.getGoodsName()}"></a>
+                <a th:text="${GoodsInfos.getGoodsInformation()}"></a>
             </div>
             <div class="detail-Price">
                 <div class="price">
-                    <a class="p-a1">平台价</a><a th:text="${GoodsInfos.getGoodsPrice()}"></a>
+                    <a class="p-a1">平台价</a> <a class="p-a3">￥<a class="p-a2" th:text="${GoodsInfos.getGoodsPrice()}"></a></a><a class="p-a4">降价通知</a>
                 </div>
                 <div>
-                    <a>促销</a>
+                    <table>
+                        <tr class="c-1"><td><a class="c-1-1">促销:</a></tr>
+                        <tr class="c-2"><td><a class="c-2-2">限购</a><a class="c-2-3">购买不超过3件时享受单件价</a><a class="c-2-3" th:text="${GoodsInfos.getGoodsPrice()}"></a><a class="c-2-3">，超出数量以结算价为准</a></td></tr>
+                        <tr class="c-3"><td><a class="c-3-3">换购</a><a class="c-3-4">购买1件可优惠换购热销商品</a><a class="c-3-5">立即换购</a></td></tr>
+                    </table>
                 </div>
             </div>
-                <div class="Detail-num">
+            <div class="Detail-d">
+                <table>
+                <tr>
+                    <td>
+                        <a class="d-1">增值服务</a><a class="d-2">高价回收，极速到账</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>配送至</td>
+                </tr>
+                </table>
+
+               <select class="d-3" id="Sheng">
+                   <option>---请选择---</option>
+               </select>
+               <select  id="Shi">
+                   <option>---请选择---</option>
+               </select>
+               <select  id="Qv">
+                   <option>---请选择---</option>
+               </select>
+            </div>
+            <div>
+                <table>
+                    <tr class="d-d">
+                        <td class="d-4-1">选择颜色</td>
+                        <td  class="d-4-1-2"><a class="d-4-2">梦幻罗兰</a></td>
+                        <td  class="d-4-1-1"><a class="d-4-2">亮黑色</a></td>
+                        <td  class="d-4-1-1"><a class="d-4-2">梦幻星河</a></td>
+                        <td  class="d-4-1-1"><a class="d-4-2">环境森林</a></td>
+                    </tr>
+                    <tr class="d-d">
+                        <td class="d-4-2-1"><a>选择版本</a></td></a>
+                        <td class="d-4-2-2"><a class="d-4-2">8GB+128GB</a></td>
+                        <td class="d-4-2-3"><a class="d-4-2">8GB+256GB</a></td>
+                    </tr>
+                    <tr class="d-d">
+                        <td class="d-4-2-1"><a>选择版本</a></td>
+                        <td class="d-4-2-2"><a class="d-4-2">无充版</a></td>
+                        <td class="d-4-2-3"><a class="d-4-2">快充套餐版</a></td>
+                    </tr>
+                </table>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                    <div class="Detail-num">
                     <input class="Detail-num-main" type="number">
                 </div>
-                <div class="ATCart">
-                    <a class="ATCart-text" th:text="加入购物车"></a>
-<!--                    <button class="ATCart-text">加入购物车</button>-->
-                </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ATCart">
+                            <a class="ATCart-text" th:text="加入购物车"></a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
             <div hidden="hidden" class="hideD" th:data-gid="${GoodsInfos.getGoodsId()}"></div>
         </div>
     </div>

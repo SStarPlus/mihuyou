@@ -11,4 +11,20 @@
          from user_Manager
          where ManagerId = '${ManagerNum}' AND ManagerPwd = '${ManagerPwd}'
     </select>
+
+    <select id="selectByName" resultType="javaeepp.mihuyou.entity.Users">
+        select count(*)
+        from users
+        where UId = '${username}'
+    </select>
+
+    <select id="listByUserId" resultType="javaeepp.mihuyou.entity.Users">
+        select * from users
+        where UId = ${userId}
+    </select>
+
+    <select id="selectById" resultType="javaeepp.mihuyou.entity.Users">
+        sleect *from users
+        where UId = ${UId}
+    </select>
 </mapper>

@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <title>我的订单</title>
 
-<!--    <script th:src="@{../static/js/jQuery.js}"></script>-->
-<!--    <script th:src="@{../static/js/shoppingCart.js}"></script>-->
+    <script th:src="@{../static/js/jQuery.js}"></script>
+    <script th:src="@{../static/js/showOrderDetail.js}"></script>
     <link rel="stylesheet" th:href="@{../static/css/cartGoods.css}">
 </head>
 <body>
 <nav class="public-header">
-    <!--        <a th:href="">网站首页</a>-->
-    <!--        <a th:href="">我的收藏</a>-->
     <span>
             <a></a>
-        <!--            <a>注册</a>-->
-        </span>
+    </span>
 </nav>
 
 <div class="public-shop-cart">
     <div class="content">
         <span>我的订单</span>
+        <a th:href="@{/home}" class="head-a" style="font-size: x-large;position: absolute;left: 1250px ;top:25px;text-decoration: none">首页</a>
+        <span th:href="@{/showUnpaid}" class="unPaidUrl">未付款</span>
 <!--        <a class="btn-del-cart" href="javascript:;">批量删除</a>-->
         <div class="cart-title">
             <span></span>

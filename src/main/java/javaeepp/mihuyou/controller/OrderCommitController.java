@@ -1,5 +1,6 @@
 package javaeepp.mihuyou.controller;
 
+import javaeepp.mihuyou.entity.Goods;
 import javaeepp.mihuyou.entity.ResultBean;
 import javaeepp.mihuyou.service.OderCommitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 import java.util.jar.Attributes;
 
 @Controller
@@ -28,12 +30,12 @@ public class OrderCommitController {
 //    }
     @RequestMapping("pushOrderFst")
     public String pushOrderFst(HttpServletRequest request, HttpSession session, Model model, RedirectAttributes attributes){
-//        String Time = new Timestamp(new Date().getTime()).toString();
-        oderCommitService.createOrderFirst(request,session);
+        String Time = new Timestamp(new Date().getTime()).toString();
+        oderCommitService.createOrderFirst(request,session,Time);
         String UId = session.getAttribute("userNum").toString();
 
         attributes.addAttribute("UId",UId);
-
+        attributes.addAttribute(Time);
         return "redirect:showSecondOrder";
     }
 
@@ -43,9 +45,15 @@ public class OrderCommitController {
         String Time = new Timestamp(new Date().getTime()).toString();
 
         oderCommitService.createOrderFinally(request, session,Time);
-        return "redirect:toMyShoppingCart";
+        return "redirect:Index/Pay";
     }
 
+
+    //
+
+
+
+    //
     @RequestMapping("showSecondOrder")
     public String showSecondOrder(HttpServletRequest request , Model model,HttpSession session, RedirectAttributes attributes){
         String UId = session.getAttribute("userNum").toString();
@@ -62,4 +70,5 @@ public class OrderCommitController {
         model.addAttribute("OrderGoods",oderCommitService.getMyOrder(UId));
         return "showOrderDetail";
     }
+
 }

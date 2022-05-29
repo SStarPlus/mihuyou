@@ -25,7 +25,7 @@
                     </strong>
                 </div>
                 <div class="s-information">
-                    <a target="blank" th:text="${Goods.GoodsInformation}"></a>
+                    <a target="blank"  th:href="@{/ShowGoodsDetail(GoodsId = ${Goods.GoodsId})}" th:text="${Goods.GoodsInformation}"></a>
                 </div>
             </div>
 
@@ -35,7 +35,7 @@
                     <a class="star" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击收藏"
                     style="display: block">收藏</a>
                     <a class="cancel-star" th:data-gid="${Goods.getGoodsId()}" href="javascript:;" title="点击取消收藏"
-                       style="display: none">取消收藏</a>
+                       style="display: none;text-decoration: underline;">取消收藏</a>
                 </div>
             </div>
         </li>
@@ -65,37 +65,9 @@
                            style="display: none">取消收藏</a>
                     </div>
                 </div>
-
-
             </li>
-<!--        <li class="LiTotal" th:each="Goods,itemStat:${GoodsSelectByKey}" th:if="">-->
     </ul>
 
-<!--    <div>-->
-<!--        <table>-->
-<!--            <tr>-->
-<!--                <td>GoodsId</td>-->
-<!--                <td>GoodsName</td>-->
-<!--                <td>GoodsInformation</td>-->
-<!--                <td>GoodsPrice</td>-->
-<!--                <td>GoodsStock</td>-->
-<!--            </tr>-->
-<!--            <tr th:each="Goods, itemStat:${GoodsSelectByKey}">-->
-<!--                <td th:text="${Goods.GoodsId}"></td>-->
-<!--                <td th:text="${Goods.GoodsName}"></td>-->
-<!--                <td th:text="${Goods.GoodsInformation}"></td>-->
-<!--                <td th:text="${Goods.GoodsPrice}"></td>-->
-<!--                <td th:text="${Goods.GoodsStock}"></td>-->
-<!--            </tr>-->
-<!--            <tr th:each="Goods, itemStat:${GoodsSelectTypeId}">-->
-<!--                <td th:text="${Goods.GoodsId}"></td>-->
-<!--                <td th:text="${Goods.GoodsName}"></td>-->
-<!--                <td th:text="${Goods.GoodsInformation}"></td>-->
-<!--                <td th:text="${Goods.GoodsPrice}"></td>-->
-<!--                <td th:text="${Goods.GoodsStock}"></td>-->
-<!--            </tr>-->
-<!--        </table>-->
-<!--    </div>-->
 
 
 <!--css-->

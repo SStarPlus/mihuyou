@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="javaeepp.mihuyou.mapper.SalesSituationMapper">
+    <select id="getYear" resultType="javaeepp.mihuyou.entity.SalesSituation">
+--            SELECT hadsold.GoodsId,Goods.GoodsName,sum(IF(YEAR = 2022,SoldNum ,NULL)) AS soldNum,hadsold.totalPrice,
+--            SUM(IF(YEAR = 2021,SoldNum ,NULL))as soldLastYear
+--             FROM `hadsold` inner JOIN Goods on Goods.GoodsId  = hadsold.goodsId
+--             GROUP BY hadsold.GoodsId
+             SELECT hadsold.GoodsId,Goods.GoodsName,sum(IF(YEAR = ${year},SoldNum ,NULL)) AS soldNum,hadsold.totalPrice,
+            SUM(IF(YEAR = ${year}-1,SoldNum ,NULL))as soldLastYear,CONVERT((sum(IF(YEAR = ${year},SoldNum ,NULL))-sum(IF(YEAR = ${year}-1,SoldNum ,NULL))/sum(IF(YEAR = 2021,SoldNum ,NULL))),DECIMAL(15,3)) as ADDL
+            FROM `hadsold` inner JOIN Goods on Goods.GoodsId  = hadsold.goodsId
+            GROUP BY hadsold.GoodsId
+    </select>
+    <select id="getMon" resultType="javaeepp.mihuyou.entity.SalesSituation">
+        Select hadsold.GoodsId ,Goods.GoodsName, SUM(IF(mon = ${mon} and year = ${year},SoldNum ,0)) as today,hadsold.TotalPrice,SUM(IF(mon = ${mon}-1 and year = ${year},SoldNum ,0)) as ADDL,
+        (SUM(IF(mon = ${mon} and year = ${year},SoldNum ,0))-SUM(IF(mon = ${mon}-1 and year = ${year},SoldNum ,0)))
+        from hadsold
+        INNER JOIN Goods on Goods.GoodsId = hadsold.GoodsId
+        group by GoodsId
+    </select>
+    <select id="getDay" resultType="javaeepp.mihuyou.entity.SalesSituation">
+         Select hadsold.GoodsId ,Goods.GoodsName, SUM(IF(day = ${day} and mon = ${mon}  and year = ${year},SoldNum ,0)) as soldNum,hadsold.TotalPrice,SUM(IF(day = ${day}-1 and mon = ${mon}  and year = ${year},SoldNum ,0)) ,
+        (SUM(IF(day = ${day} and year = ${year} and mon = ${mon},SoldNum ,0)) - SUM(IF(day = ${day}-1 and mon = ${mon}  and year = ${year},SoldNum ,0))) as ADDL
+        from hadsold
+        INNER JOIN Goods on Goods.GoodsId = hadsold.GoodsId
+        group by GoodsId
+    </select>
+</mapper>

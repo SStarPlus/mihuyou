@@ -2,42 +2,43 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="javaeepp.mihuyou.mapper.OderCommitMapper">
     <insert id="createOrderFirst">
-        INSERT INTO javaeepluswork.order (GoodsId, GoodsNum, UId, OrderNumber, TotalPrice, CreateDate)
-        SELECT sc.GoodsId,sc.GoodsNum,sc.UId,ordernum.OrderNum,sc.GoodsNum*g.GoodsPrice ,'${Time}'
+        INSERT INTO javaeepluswork.order (GoodsId, GoodsNum, UId, OrderNumber, TotalPrice, CreateDate,actFlag)
+        SELECT sc.GoodsId,sc.GoodsNum,sc.UId,ordernum.OrderNum,sc.GoodsNum*g.GoodsPrice ,'${Time}' , 2
         from goods g
-        INNER JOIN shoppingcart sc ON g.GoodsId = sc.GoodsId
+        INNER JOIN shoppingcart sc ON g.GoodsId = sc.GoodsId  and sc.actFlag = 1
           INNER JOIN ordernum
         where sc.GoodsId = ${GoodsId} and sc.UId = '${UId}'
     </insert>
 
     <update id="addOrderNum">
         UPDATE ordernum
-        set ordernum = ordernum+1
+        set ordernum = ordernum +1
     </update>
 
     <update id="delGoodsStock">
         UPDATE goods
         set goods.GoodsStock = goods.GoodsStock - (SELECT GoodsNum from shoppingcart sc where sc.UId = '${UId}' and sc.GoodsId = ${GoodsId})
         where goods.GoodsId = (
-        SELECT sc.GoodsId from shoppingcart sc where sc.UId = '${UId}' and sc.GoodsId = ${GoodsId})
+        SELECT sc.GoodsId from shoppingcart sc where sc.UId = '${UId}' and sc.GoodsId = ${GoodsId} and sc.actFlag = 2)
     </update>
 
     <update id="changeActFlag">
         UPDATE shoppingcart
         set actFlag = 2
-        where UId = '${UId}' and GoodsId = ${GoodsId}
+        where UId = '${UId}' and GoodsId = ${GoodsId} and actFlag = 1
     </update>
 
     <update id="changeActFlagFin">
         UPDATE shoppingcart
-        set actFlag = 0
+        set actFlag = -1
         where UId = '${UId}' and GoodsId = ${GoodsId} and actFlag = 2
     </update>
+
     <select id="getMyOrder" resultType="javaeepp.mihuyou.entity.myOrderInfo">
         SELECT g.GoodsId,g.GoodsInformation,g.GoodsName,g.GoodsPrice,gp.GoodsPictureString,o.GoodsNum,o.UId,o.GoodsNum*g.GoodsPrice AS total
         FROM goods g INNER JOIN goodspicture gp ON g.GoodsId = gp.GoodsPictureString
         INNER JOIN javaeepluswork.order o ON o.GoodsId = g.GoodsId
-        where o.UId = '${UId}'
+        where o.UId = '${UId}' and o.actFlag = -1
     </select>
     <select id="showSecondOrder" resultType="javaeepp.mihuyou.entity.cartGoodsInfo">
         SELECT g.GoodsId,g.GoodsInformation,g.GoodsName,g.GoodsPrice,gp.GoodsPictureString,sc.GoodsNum,SC.UId,sc.GoodsNum*g.GoodsPrice AS total
@@ -45,4 +46,32 @@
         INNER JOIN shoppingcart sc ON sc.GoodsId = g.GoodsId
         where sc.UId = '${UId}'  and actFlag = 2
     </select>
+
+    <update id="changeOrderActFlag">
+        UPDATE `order`
+        set actFlag = -1
+        where goodsId = ${GoodsId} and UId = '${UId}' and actFlag = 2
+    </update>
+
+
+<!--   报表 -->
+    <select id="addToStatementFirst" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM `hadsold`
+        where GoodsId = ${GoodsId} and year = ${year} and mon = ${mon} and day = ${day}
+    </select>
+<!--    已经存在，直接update-->
+    <update id="UpdateStatement">
+        UPDATE hadsold
+        set SoldNum = SoldNum + (SELECT GoodsNum from `order` where GoodsId  =${GoodsId} and UId = '${UId}' and actFlag = 2 ) ,
+            TotalPrice = TotalPrice + (SELECT TotalPrice from `order` where GoodsId  = ${GoodsId} and UId = '${UId}' and actFlag = 2 )
+        where GoodsId = ${GoodsId} and year = ${year} and mon = ${mon} and day = ${day}
+
+    </update>
+
+    <insert id="createStatement">
+        insert into hadsold
+        SELECT ${GoodsId}, o.GoodsNum,${year},${mon},${day},o.TotalPrice
+        FROM `order` o
+        where o.goodsId = ${GoodsId} and actFlag = 2 and UId = '${UId}'
+    </insert>
 </mapper>

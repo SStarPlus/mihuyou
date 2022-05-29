@@ -27,4 +27,26 @@ public interface OderCommitMapper {
     List<myOrderInfo> getMyOrder(@Param("UId") String UId);
     //订单生产界面获取订单中的商品
     List<cartGoodsInfo> showSecondOrder(@Param("UId") String UId);
+
+
+    public void changeOrderActFlag(String GoodsId,String UId);
+
+
+    //报表
+    //1.判断是否在该年该月改日已经存在数据  存在则直接update 否则重新insert
+    int addToStatementFirst(@Param("GoodsId") String GoodsId,
+                            @Param("year") String year,
+                            @Param("mon") String mon,
+                            @Param("day") String day);
+
+    public void UpdateStatement(@Param("UId") String UId,
+                                @Param("GoodsId") String GoodsId,
+                                @Param("year") String year,
+                                @Param("mon") String mon,
+                                @Param("day") String day);
+    public void createStatement(@Param("GoodsId") String GoodsId,
+                                @Param("UId") String UId,
+                                @Param("year") String year,
+                                @Param("mon") String mon,
+                                @Param("day") String day);
 }

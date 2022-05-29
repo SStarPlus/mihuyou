@@ -36,8 +36,6 @@ public class ManageMenuController {
 
     @RequestMapping("/removeGoodsType")
     public String toRemoveGoodsType(Model model){
-
-
         model.addAttribute("GoodsTypeList", removeGoodsTypeService.getAllGoodsTypeList());
         model.addAttribute("testTxt", "这是测试文本");
         return "removeGoodsType";

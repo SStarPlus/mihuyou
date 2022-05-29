@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:itemStat="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>尚未支付的订单</title>
+    <script th:src="@{../static/js/jQuery.js}"></script>
+    <script th:src="@{../static/js/showOrderDetail.js}"></script>
+    <link rel="stylesheet" th:href="@{../static/css/cartGoods.css}">
+</head>
+<body>
+<nav class="public-header">
+    <span>
+            <a></a>
+        </span>
+</nav>
+
+<div class="public-shop-cart">
+    <div class="content">
+        <span class="myOrder">我的订单</span>
+        <span>未付款</span>
+        <!--        <a class="btn-del-cart" href="javascript:;">批量删除</a>-->
+        <div class="cart-title">
+            <span></span>
+            <span>商品</span>
+            <span>单价</span>
+            <span>数量</span>
+            <span>小计</span>
+            <span>操作</span>
+        </div>
+        <div class="cart-detail" th:each="Goods , itemStat:${unpaid}">
+            <!--图片                -->
+            <input style="background-color: transparent; border: 0" t.h:data-gid="${Goods.getGoodsId()}">
+            <div class="cart-title" th:data-gid="${Goods.getGoodsId()}">
+                <img th:src="@{../../static/pictures/{id}(id=${Goods.getGoodsPictureString()})}" >
+                <!--                    <img src="src../static/images/cart1.png" alt="">-->
+                <div>
+                    <a th:text="${Goods.getGoodsName()}"></a>
+                    <span><i class="iconfont icon-icon_shezhi"></i><a href="">选服务</a></span>
+                </div>
+                <span th:text="${Goods.getGoodsInformation()}"></span>
+            </div>
+            <div class="cart-price" th:text="${Goods.getGoodsPrice()}"></div>
+            <div class="cart-number">
+                <span th:text="${Goods.getGoodsNum()}"></span>
+            </div>
+            <div class="cart-subtotal" th:text="${Goods.getTotal()}"></div>
+            <div class="cart-oprate">
+                <ul class="cancelOrder">取消订单</ul>
+                <ul class="goPaid">去支付</ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

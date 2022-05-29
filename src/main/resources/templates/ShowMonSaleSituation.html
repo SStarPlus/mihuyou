@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="insertPart/header::header-fragment"></header>
+<body class="whole-page" th:fragment="goodsTypeListFragment">
+<div class="wrapper">
+    <!--    引入头部导航栏-->
+    <div th:replace="insertPart/header::header-nav"></div>
+    <!--    引入边部导航栏-->
+    <div th:replace="insertPart/sideBar::sidebar-fragment(${path})"></div>
+    <div class="content-wrapper">
+        <div class="content-head">
+            <div class="content-fluid"></div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-fluid">
+            <button class="clickToExport">导出报表</button>
+            <div>
+                <table class="data-table">
+                    <tr>
+                        <td>序号</td>
+                        <td>商品编号</td>
+                        <td>商品名称</td>
+                        <td>月度销售量</td>
+                        <td>月度销售额</td>
+                        <td>同比增加(件)</td>
+                    </tr>
+                    <tr th:each="Goods, itemStat:${GoodsSoldMon}">
+                        <td th:text="${itemStat.index+ 1}"></td>
+                        <td th:text="${Goods.getGoodsId()}" ></td>
+                        <td th:text="${Goods.getGoodsName()}"></td>
+                        <td th:text="${Goods.getSoldNum}"></td>
+                        <td th:text="${Goods.getTotalPrice()}"></td>
+                        <td th:text="${Goods.getADDL()}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!--        <div id="edit-goodsType-dialog" style="display: none">-->
+        <!--            <div>-->
+        <!--                <ul>-->
+        <!--                    <li>商品编号</li>-->
+        <!--                    <li><input type="text" class="edit-goodsTypeId" disabled="true"></li>-->
+        <!--                </ul>-->
+        <!--                <ul>-->
+        <!--                    <li>商品类别名称</li>-->
+        <!--                    <li><input type="text" class="edit-goodsTypeName"></li>-->
+        <!--                </ul>-->
+        <!--            </div>-->
+        <!--        </div>-->
+    </div>
+</div>
+<link rel="stylesheet" th:href="@{../static/css/ShowSaleSituation.css}">
+<script th:src="@{../static/js/jQuery.js}"></script>
+<script th:src="@{../static/js/ExportToExcel.js}"></script>
+</body>
+</html>

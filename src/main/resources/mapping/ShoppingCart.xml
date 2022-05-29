@@ -3,7 +3,7 @@
 <mapper namespace="javaeepp.mihuyou.mapper.ShoppingCartMapper">
     <select id="CheckGoodsIfExist" resultType="java.lang.Integer">
         select count(*) from ShoppingCart
-        where GoodsId = ${GoodsId} and UId = '${UId}'
+        where GoodsId = ${GoodsId} and UId = '${UId}' and actFlag = 1
     </select>
     <insert id="insertGoods">
         insert into ShoppingCart
